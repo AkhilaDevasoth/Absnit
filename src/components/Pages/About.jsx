@@ -1,54 +1,73 @@
 const About = () => {
-    return (
-        <div className="page">
-            <section className="page-hero">
-                <div className="container">
-                    <h1 className="page-title">About Us</h1>
-                    <p className="page-subtitle">Learn more about our mission and values</p>
-                </div>
-            </section>
+  return (
+    <div className="page">
+      <section className="page-hero about-hero">
+        <div className="container">
+          <h1 className="page-title"
+           style={{ textAlign: "center", color: "#1e40af" }}
+          >About ABSN IT </h1>
+          <p
+  className="page-subtitle"
+  style={{
+    fontSize: "20px",
+    lineHeight: "1.2",
+    textAlign: "center",
+  }}
+>
+  Fueling innovation for future-ready businesses, we help organizations harness<br />
+  technology to stay ahead in a fast-changing digital world.
+</p>
 
-            <section className="about-content">
-                <div className="container">
-                    <div className="about-section">
-                        <h2>Our Story</h2>
-                        <p>
-                            Absnit was founded with a simple mission: to create exceptional digital experiences
-                            that drive innovation and growth. We believe in the power of technology to transform
-                            businesses and improve lives.
-                        </p>
-                        <p>
-                            Our team of experienced developers, designers, and strategists work together to
-                            deliver solutions that are not just functional, but beautiful, intuitive, and
-                            impactful.
-                        </p>
-                    </div>
-
-                    <div className="about-section">
-                        <h2>Our Values</h2>
-                        <div className="values-grid">
-                            <div className="value-item">
-                                <h3>Innovation</h3>
-                                <p>We embrace new technologies and creative solutions to solve complex problems.</p>
-                            </div>
-                            <div className="value-item">
-                                <h3>Quality</h3>
-                                <p>We never compromise on quality, ensuring every project meets the highest standards.</p>
-                            </div>
-                            <div className="value-item">
-                                <h3>Collaboration</h3>
-                                <p>We work closely with our clients to understand their needs and deliver solutions that exceed expectations.</p>
-                            </div>
-                            <div className="value-item">
-                                <h3>Integrity</h3>
-                                <p>We conduct business with honesty, transparency, and respect for all stakeholders.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
-    );
+      </section>
+
+      <section className="about-content">
+        <div className="container">
+          <div className="about-section">
+            <h2>Our Story</h2>
+            <p>
+            ABSNIT Solutions was founded with a simple belief: technology should solve real problems
+             and create real value. What began as a small idea driven by innovation and curiosity has
+              grown into a solutions-focused team committed to delivering reliable, scalable, and 
+              modern digital services. At ABSNIT Solutions, we combine technical expertise with a
+               deep understanding of client needs to build software, IT, and digital solutions that 
+               empower businesses to grow. Our journey is shaped by continuous learning, adaptability, 
+               and a passion for excellence. Every project we take on reflects our commitment to quality,
+                transparency, and long-term partnerships with our clients.
+            </p>
+          </div>
+          <div className="about-section">
+            <h2>Our Values</h2>
+            <p>
+  ➤ <strong>Integrity : </strong> Upholding the highest standards of honesty and transparency
+</p>
+
+<p>
+  ➤ <strong>Innovation : </strong> Continuously embracing new ideas and technologies
+</p>
+
+<p>
+  ➤ <strong>Excellence : </strong> Striving for superior quality in every project
+</p>
+
+<p>
+  ➤ <strong>Collaboration : </strong> Fostering strong partnerships with clients and stakeholders
+</p>
+
+          </div>
+           
+          <div className="about-section">
+            <h2>Our Mission</h2>
+            <p>
+              To deliver innovative and reliable IT solutions that empower businesses to
+              achieve their full potential.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default About;
+
