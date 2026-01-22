@@ -26,10 +26,16 @@ const Services = () => {
     },
     {
       id: "it-consulting",
-      title: "IT Consulting",
-      description:
-        "Expert advice on technology strategy and digital transformation.",
-      bgImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfBjAvm8tyw9_Xg1JntAygJYYxiX_7kqBfCg&s",
+  title: "IT Consulting",
+  description: `
+IT Consulting at ABSN IT Solutions offers professional advisory services that help organizations:
+
+Analyze their current technology setup  
+Identify opportunities to improve efficiency and performance  
+Select and implement the right technologies  
+Align IT decisions with business goals and growth strategies
+  `,
+  bgImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfBjAvm8tyw9_Xg1JntAygJYYxiX_7kqBfCg&s",
     },
     {
       id: "cybersecurity-services",

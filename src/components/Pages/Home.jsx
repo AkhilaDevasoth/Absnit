@@ -45,12 +45,13 @@ const Home = () => {
           muted
           loop
           playsInline
-          poster="https://absnit.com/wp-content/uploads/2025/05/team-img.png"
+         
         >
           <source
-            src="https://cdn.pixabay.com/video/2023/10/12/184734-873923034_large.mp4"
-            type="video/mp4"
-          />
+  src="/hero-video.mp4"
+  type="video/mp4"
+/>
+
         </video>
 
         <div className="hero-overlay"></div>
@@ -174,7 +175,7 @@ const Home = () => {
 
             <Link to="/services" className="home-service-card reveal">
               <img
-                src="https://cdn-icons-png.freepik.com/512/888/888879.png"
+                src="https://www.bestwebmasterz.com/images/mobile-applications.jpg"
                 alt="Mobile Apps"
               />
               <h3>Mobile Applications</h3>
@@ -182,7 +183,7 @@ const Home = () => {
 
             <Link to="/services" className="home-service-card reveal">
               <img
-                src="https://cdn-icons-png.freepik.com/512/4144/4144892.png"
+                src="https://www.infoworld.com/wp-content/uploads/2025/12/2238873-0-28389800-1767216406-cloud_computing_trends2.jpg?quality=50&strip=all"
                 alt="Cloud Solutions"
               />
               <h3>Cloud Solutions</h3>
@@ -190,7 +191,7 @@ const Home = () => {
 
             <Link to="/services" className="home-service-card reveal">
               <img
-                src="https://cdn-icons-png.freepik.com/512/4320/4320337.png"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl91NhFWLX-EZZS2K3JDpc4kZ7ENmk-q31Ww&s"
                 alt="IT Consulting"
               />
               <h3>IT Consulting</h3>
@@ -198,7 +199,7 @@ const Home = () => {
 
             <Link to="/services" className="home-service-card reveal">
               <img
-                src="https://cdn-icons-png.freepik.com/512/3064/3064197.png"
+                src="https://media.istockphoto.com/id/1383553886/vector/abstract-banner-cyber-security-in-3d-style-communication-technology-database-system.jpg?s=612x612&w=0&k=20&c=H_EGuMLGF8qTCp_aqYHIyYgUUz-V66gSGffmHV8elOw="
                 alt="Cybersecurity"
               />
               <h3>Cybersecurity</h3>
