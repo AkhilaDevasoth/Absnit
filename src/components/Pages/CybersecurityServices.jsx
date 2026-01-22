@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-const Healthcare = () => {
+const CybersecurityServices = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
-  /* 🔹 Reveal animation (UP & DOWN) */
+  // 🔹 Reveal animation (scroll up & down)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -25,7 +25,7 @@ const Healthcare = () => {
     return () => observer.disconnect();
   }, []);
 
-  /* 🔹 Back to top */
+  // 🔹 Back to top button
   useEffect(() => {
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 300);
@@ -41,7 +41,7 @@ const Healthcare = () => {
 
   return (
     <div className="page">
-      {/* Force reveal animation */}
+      {/* Fix reveal */}
       <style>
         {`
           .reveal.active {
@@ -58,7 +58,7 @@ const Healthcare = () => {
             className="page-title reveal"
             style={{ textAlign: "center", color: "#1e40af" }}
           >
-            Healthcare Solutions
+            Cybersecurity Services
           </h1>
 
           <p
@@ -69,7 +69,7 @@ const Healthcare = () => {
               textAlign: "center",
             }}
           >
-            Secure and scalable digital solutions for the healthcare industry
+            Security-first engineering and best practices
           </p>
         </div>
       </section>
@@ -80,24 +80,24 @@ const Healthcare = () => {
           <div className="industry-detail-layout">
 
             {/* LEFT IMAGE */}
-            <div className="industry-image-card reveal">
+            <div className="industry-image-card reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
               <img
-                src="https://www.innovationnewsnetwork.com/wp-content/uploads/2023/04/%C2%A9-shutterstockeverything-possible_2151408055-696x392.jpg"
-                alt="Healthcare Solutions"
+                src="https://bluelightllc.com/wp-content/uploads/AdobeStock_190347521-scaled-1-1080x675.jpeg"
+                alt="Cybersecurity Services"
               />
             </div>
 
             {/* RIGHT CONTENT */}
-            <div className="industry-text-content reveal">
+            <div className="industry-text-content reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
               <h2 className="industry-title">
-                Digital Healthcare Technology Solutions
+                Cybersecurity Solutions & Protection
               </h2>
 
               <p className="industry-description">
-                ABSN IT Solutions delivers secure, scalable, and compliant digital
-                healthcare platforms designed to improve patient outcomes and
-                operational efficiency. We help healthcare organizations embrace
-                digital transformation with confidence.
+                ABSN IT Solutions delivers comprehensive cybersecurity services
+                designed to protect digital assets, infrastructure, and sensitive
+                data from evolving cyber threats. Our security-first approach
+                ensures resilience, compliance, and trust.
               </p>
 
               <p className="industry-subtitle">
@@ -105,18 +105,18 @@ const Healthcare = () => {
               </p>
 
               <ul className="industry-list">
-                <li>Secure management of patient data and medical records</li>
-                <li>Electronic Health Record (EHR) system implementation</li>
-                <li>Telemedicine and remote patient monitoring platforms</li>
-                <li>Healthcare data analytics and reporting</li>
-                <li>Compliance with healthcare regulations and standards</li>
-                <li>Improving clinical workflows and efficiency</li>
+                <li>Identifying and mitigating security vulnerabilities</li>
+                <li>Protecting systems against cyber attacks and data breaches</li>
+                <li>Ensuring compliance with industry security standards</li>
+                <li>Implementing secure network and cloud architectures</li>
+                <li>Monitoring threats and responding to incidents</li>
+                <li>Improving overall security posture and resilience</li>
               </ul>
 
               <p className="industry-footer-text">
-                Our healthcare solutions support hospitals, clinics, and health-tech
-                startups with modern, secure, and scalable systems that enhance
-                care delivery while ensuring privacy, compliance, and reliability.
+                Our cybersecurity expertise covers risk assessment, penetration
+                testing, security audits, access control, and continuous
+                monitoring to safeguard your business in a digital-first world.
               </p>
             </div>
 
@@ -134,7 +134,7 @@ const Healthcare = () => {
             bottom: "20px",
             right: "20px",
             backgroundColor: "#1e40af",
-            color: "#fff",
+            color: "white",
             border: "none",
             borderRadius: "50%",
             width: "50px",
@@ -158,4 +158,4 @@ const Healthcare = () => {
   );
 };
 
-export default Healthcare;
+export default CybersecurityServices;

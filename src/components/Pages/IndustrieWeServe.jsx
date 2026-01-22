@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const IndustriesWeServe = () => {
+  const navigate = useNavigate();
   const industries = [
     {
       title: "Healthcare",
@@ -12,7 +13,9 @@ const IndustriesWeServe = () => {
     {
       title: "Education",
       description: "We empower educational institutions with smart digital solutions that transform learning and administration. Our education-focused services include learning management systems, student information platforms, online examination tools, and custom software for schools, colleges, and EdTech companies. AbsNIT Solutions enables seamless collaboration, improved engagement, and data-driven decision-making in today’s digital education ecosystem.",
-      bgImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtuh_xYWw9k0w6dDcXPemYHT27bEIf3PWCJQ&s",      route: "/industries/education",    },
+      bgImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtuh_xYWw9k0w6dDcXPemYHT27bEIf3PWCJQ&s",
+      route: "/industries/education",
+    },
     {
       title: "Manufacturing",
       description: "AbsNIT Solutions supports manufacturing businesses in their journey toward digital transformation. Our solutions optimize production processes, inventory management, supply chain operations, and quality control through automation and real-time insights. By integrating intelligent systems and analytics, we help manufacturers increase productivity, reduce downtime, and maintain operational excellence.",
@@ -103,14 +106,14 @@ const IndustriesWeServe = () => {
                   </div>
 
                   {/* TITLE */}
-                  <h3
+                 <h3
                     style={{
                       fontSize: "25px",
                       fontWeight: "600",
                       marginBottom: "10px",
                       position: "relative",
                       zIndex: 2,
-                      color: showBg ? "#0c0b0bff" : "#171ca4ff",
+                      color: showBg ? "#f4f2f2ff" : "#171ca4ff",
                     }}
                   >
                     {item.title}

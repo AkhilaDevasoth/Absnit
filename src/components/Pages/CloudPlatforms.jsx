@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Healthcare = () => {
+const CloudPlatforms = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   /* 🔹 Reveal animation (UP & DOWN) */
@@ -58,7 +58,7 @@ const Healthcare = () => {
             className="page-title reveal"
             style={{ textAlign: "center", color: "#1e40af" }}
           >
-            Healthcare Solutions
+            Cloud Platforms
           </h1>
 
           <p
@@ -69,7 +69,7 @@ const Healthcare = () => {
               textAlign: "center",
             }}
           >
-            Secure and scalable digital solutions for the healthcare industry
+            Scalable cloud infrastructure for modern applications
           </p>
         </div>
       </section>
@@ -82,41 +82,41 @@ const Healthcare = () => {
             {/* LEFT IMAGE */}
             <div className="industry-image-card reveal">
               <img
-                src="https://www.innovationnewsnetwork.com/wp-content/uploads/2023/04/%C2%A9-shutterstockeverything-possible_2151408055-696x392.jpg"
-                alt="Healthcare Solutions"
+                src="https://www.shutterstock.com/image-vector/abstract-cloud-technology-circuit-board-600nw-2669250763.jpg"
+                alt="Cloud Platforms"
               />
             </div>
 
             {/* RIGHT CONTENT */}
             <div className="industry-text-content reveal">
               <h2 className="industry-title">
-                Digital Healthcare Technology Solutions
+                Cloud Infrastructure & Platforms
               </h2>
 
               <p className="industry-description">
-                ABSN IT Solutions delivers secure, scalable, and compliant digital
-                healthcare platforms designed to improve patient outcomes and
-                operational efficiency. We help healthcare organizations embrace
-                digital transformation with confidence.
+                ABSN IT Solutions delivers scalable, secure, and cost-effective
+                cloud solutions using leading cloud platforms. We help
+                organizations modernize infrastructure, improve agility, and
+                scale applications with confidence.
               </p>
 
               <p className="industry-subtitle">
-                Key challenges we address:
+                Cloud platforms we work with:
               </p>
 
               <ul className="industry-list">
-                <li>Secure management of patient data and medical records</li>
-                <li>Electronic Health Record (EHR) system implementation</li>
-                <li>Telemedicine and remote patient monitoring platforms</li>
-                <li>Healthcare data analytics and reporting</li>
-                <li>Compliance with healthcare regulations and standards</li>
-                <li>Improving clinical workflows and efficiency</li>
+                <li>AWS for scalable and reliable cloud infrastructure</li>
+                <li>Microsoft Azure for enterprise cloud solutions</li>
+                <li>Google Cloud Platform for data and AI-driven workloads</li>
+                <li>Cloud migration and modernization services</li>
+                <li>Cloud security and cost optimization</li>
+                <li>High availability and disaster recovery solutions</li>
               </ul>
 
               <p className="industry-footer-text">
-                Our healthcare solutions support hospitals, clinics, and health-tech
-                startups with modern, secure, and scalable systems that enhance
-                care delivery while ensuring privacy, compliance, and reliability.
+                Our cloud platform expertise enables businesses to build
+                resilient, high-performance applications while reducing
+                operational complexity and infrastructure costs.
               </p>
             </div>
 
@@ -158,4 +158,4 @@ const Healthcare = () => {
   );
 };
 
-export default Healthcare;
+export default CloudPlatforms;

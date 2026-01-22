@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-const Healthcare = () => {
+const MobileAppDevelopment = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
-  /* 🔹 Reveal animation (UP & DOWN) */
+  // 🔹 Reveal animation (up & down)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -25,7 +25,7 @@ const Healthcare = () => {
     return () => observer.disconnect();
   }, []);
 
-  /* 🔹 Back to top */
+  // 🔹 Back-to-top button logic
   useEffect(() => {
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 300);
@@ -41,7 +41,7 @@ const Healthcare = () => {
 
   return (
     <div className="page">
-      {/* Force reveal animation */}
+      {/* Reveal fix */}
       <style>
         {`
           .reveal.active {
@@ -58,7 +58,7 @@ const Healthcare = () => {
             className="page-title reveal"
             style={{ textAlign: "center", color: "#1e40af" }}
           >
-            Healthcare Solutions
+            Mobile App Development
           </h1>
 
           <p
@@ -69,7 +69,7 @@ const Healthcare = () => {
               textAlign: "center",
             }}
           >
-            Secure and scalable digital solutions for the healthcare industry
+            High-performance mobile apps for Android and iOS
           </p>
         </div>
       </section>
@@ -80,24 +80,24 @@ const Healthcare = () => {
           <div className="industry-detail-layout">
 
             {/* LEFT IMAGE */}
-            <div className="industry-image-card reveal">
+            <div className="industry-image-card reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
               <img
-                src="https://www.innovationnewsnetwork.com/wp-content/uploads/2023/04/%C2%A9-shutterstockeverything-possible_2151408055-696x392.jpg"
-                alt="Healthcare Solutions"
+                src="https://bluetreeagency.com/wp-content/uploads/2024/11/660e8ac66813866c71248853_Choosing-a-Mobile-App-Framework.jpeg"
+                alt="Mobile App Development"
               />
             </div>
 
             {/* RIGHT CONTENT */}
-            <div className="industry-text-content reveal">
+            <div className="industry-text-content reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
               <h2 className="industry-title">
-                Digital Healthcare Technology Solutions
+                Mobile App Development Services
               </h2>
 
               <p className="industry-description">
-                ABSN IT Solutions delivers secure, scalable, and compliant digital
-                healthcare platforms designed to improve patient outcomes and
-                operational efficiency. We help healthcare organizations embrace
-                digital transformation with confidence.
+                We build high-performance, scalable, and secure mobile
+                applications that deliver exceptional user experiences across
+                Android and iOS platforms. Our solutions are designed to support
+                business growth, user engagement, and long-term success.
               </p>
 
               <p className="industry-subtitle">
@@ -105,18 +105,19 @@ const Healthcare = () => {
               </p>
 
               <ul className="industry-list">
-                <li>Secure management of patient data and medical records</li>
-                <li>Electronic Health Record (EHR) system implementation</li>
-                <li>Telemedicine and remote patient monitoring platforms</li>
-                <li>Healthcare data analytics and reporting</li>
-                <li>Compliance with healthcare regulations and standards</li>
-                <li>Improving clinical workflows and efficiency</li>
+                <li>Designing intuitive and engaging mobile user experiences</li>
+                <li>Developing native and cross-platform mobile applications</li>
+                <li>Ensuring performance, security, and scalability</li>
+                <li>Integrating apps with backend systems and APIs</li>
+                <li>Supporting real-time features and cloud connectivity</li>
+                <li>Maintaining compatibility across devices and OS versions</li>
               </ul>
 
               <p className="industry-footer-text">
-                Our healthcare solutions support hospitals, clinics, and health-tech
-                startups with modern, secure, and scalable systems that enhance
-                care delivery while ensuring privacy, compliance, and reliability.
+                Our expertise includes native Android & iOS apps, cross-platform
+                development, enterprise mobility solutions, and ongoing app
+                maintenance to help businesses stay competitive in the mobile-first
+                world.
               </p>
             </div>
 
@@ -124,7 +125,7 @@ const Healthcare = () => {
         </div>
       </section>
 
-      {/* BACK TO TOP */}
+      {/* BACK TO TOP BUTTON */}
       {showBackToTop && (
         <button
           className="back-to-top-btn"
@@ -134,7 +135,7 @@ const Healthcare = () => {
             bottom: "20px",
             right: "20px",
             backgroundColor: "#1e40af",
-            color: "#fff",
+            color: "white",
             border: "none",
             borderRadius: "50%",
             width: "50px",
@@ -158,4 +159,4 @@ const Healthcare = () => {
   );
 };
 
-export default Healthcare;
+export default MobileAppDevelopment;

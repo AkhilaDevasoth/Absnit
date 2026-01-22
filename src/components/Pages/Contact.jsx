@@ -36,7 +36,8 @@ const Contact = () => {
                 <div className="container">
                     <div className="contact-wrapper">
                         <div className="contact-info">
-                            <h2>Let's Talk</h2>
+                            
+                             <strong>Let's Talk</strong>
                             <p>
                                 Have a project in mind? We'd love to hear from you.
                                 Send us a message and we'll respond as soon as possible.
@@ -45,15 +46,15 @@ const Contact = () => {
                             <div className="contact-details">
                                 <div className="contact-item">
                                     <strong>Email:</strong>
-                                    <p>info@absnit.com</p>
+                                   <p><a href="mailto:info@absnit.com">info@absnit.com</a></p>
                                 </div>
                                 <div className="contact-item">
                                     <strong>Phone:</strong>
-                                    <p>+1 (555) 123-4567</p>
+                                   <p><a href="tel:+919948550646">+91 9948550646</a></p>
                                 </div>
                                 <div className="contact-item">
                                     <strong>Address:</strong>
-                                    <p>123 Tech Street<br />City, Country 12345</p>
+                                    <p> 1-111 Madhannapet, Narsampet, <br></br>Warangal, Telangana 506132</p>
                                 </div>
                             </div>
                         </div>

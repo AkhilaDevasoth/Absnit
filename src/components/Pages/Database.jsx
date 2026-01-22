@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Healthcare = () => {
+const Database = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   /* 🔹 Reveal animation (UP & DOWN) */
@@ -58,7 +58,7 @@ const Healthcare = () => {
             className="page-title reveal"
             style={{ textAlign: "center", color: "#1e40af" }}
           >
-            Healthcare Solutions
+            Database Technologies
           </h1>
 
           <p
@@ -69,7 +69,7 @@ const Healthcare = () => {
               textAlign: "center",
             }}
           >
-            Secure and scalable digital solutions for the healthcare industry
+            Robust database solutions for data management
           </p>
         </div>
       </section>
@@ -82,41 +82,42 @@ const Healthcare = () => {
             {/* LEFT IMAGE */}
             <div className="industry-image-card reveal">
               <img
-                src="https://www.innovationnewsnetwork.com/wp-content/uploads/2023/04/%C2%A9-shutterstockeverything-possible_2151408055-696x392.jpg"
-                alt="Healthcare Solutions"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVYYo_oEhFbIFzkeCXypRMDTwaUCJIOoY4NQ&s"
+                alt="Database Technologies"
               />
             </div>
 
             {/* RIGHT CONTENT */}
             <div className="industry-text-content reveal">
               <h2 className="industry-title">
-                Digital Healthcare Technology Solutions
+                Modern Database Solutions
               </h2>
 
               <p className="industry-description">
-                ABSN IT Solutions delivers secure, scalable, and compliant digital
-                healthcare platforms designed to improve patient outcomes and
-                operational efficiency. We help healthcare organizations embrace
-                digital transformation with confidence.
+                ABSN IT Solutions delivers reliable and scalable database
+                solutions to support modern applications. We design, optimize,
+                and manage databases that ensure high performance, data
+                integrity, and secure access across systems.
               </p>
 
               <p className="industry-subtitle">
-                Key challenges we address:
+                Database technologies we work with:
               </p>
 
               <ul className="industry-list">
-                <li>Secure management of patient data and medical records</li>
-                <li>Electronic Health Record (EHR) system implementation</li>
-                <li>Telemedicine and remote patient monitoring platforms</li>
-                <li>Healthcare data analytics and reporting</li>
-                <li>Compliance with healthcare regulations and standards</li>
-                <li>Improving clinical workflows and efficiency</li>
+                <li>MySQL for reliable relational database solutions</li>
+                <li>PostgreSQL for advanced, enterprise-grade databases</li>
+                <li>MongoDB for flexible NoSQL data storage</li>
+                <li>Cloud databases and managed database services</li>
+                <li>Database performance tuning and optimization</li>
+                <li>Secure data storage and backup strategies</li>
               </ul>
 
               <p className="industry-footer-text">
-                Our healthcare solutions support hospitals, clinics, and health-tech
-                startups with modern, secure, and scalable systems that enhance
-                care delivery while ensuring privacy, compliance, and reliability.
+                Our database expertise ensures efficient data storage,
+                high availability, and seamless integration with your
+                applications, enabling data-driven decision-making and
+                long-term scalability.
               </p>
             </div>
 
@@ -158,4 +159,4 @@ const Healthcare = () => {
   );
 };
 
-export default Healthcare;
+export default Database;

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-const Healthcare = () => {
+const CloudSolutions = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
-  /* 🔹 Reveal animation (UP & DOWN) */
+  /* 🔹 Reveal animation (scroll up & down) */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -58,7 +58,7 @@ const Healthcare = () => {
             className="page-title reveal"
             style={{ textAlign: "center", color: "#1e40af" }}
           >
-            Healthcare Solutions
+            Cloud Solutions
           </h1>
 
           <p
@@ -69,7 +69,7 @@ const Healthcare = () => {
               textAlign: "center",
             }}
           >
-            Secure and scalable digital solutions for the healthcare industry
+            Scalable cloud architecture and DevOps services
           </p>
         </div>
       </section>
@@ -80,24 +80,24 @@ const Healthcare = () => {
           <div className="industry-detail-layout">
 
             {/* LEFT IMAGE */}
-            <div className="industry-image-card reveal">
+            <div className="industry-image-card reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
               <img
-                src="https://www.innovationnewsnetwork.com/wp-content/uploads/2023/04/%C2%A9-shutterstockeverything-possible_2151408055-696x392.jpg"
-                alt="Healthcare Solutions"
+                src="https://media.istockphoto.com/id/2219130406/photo/cloud-computing-symbol-connects-to-server-datacenter-network.jpg?s=612x612&w=0&k=20&c=XBbhS7J1B8hQxujIuL9vHREn_h3VzFLEXhEyzRX2T_U="
+                alt="Cloud Solutions"
               />
             </div>
 
             {/* RIGHT CONTENT */}
-            <div className="industry-text-content reveal">
+            <div className="industry-text-content reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
               <h2 className="industry-title">
-                Digital Healthcare Technology Solutions
+                Cloud Architecture & DevOps Services
               </h2>
 
               <p className="industry-description">
-                ABSN IT Solutions delivers secure, scalable, and compliant digital
-                healthcare platforms designed to improve patient outcomes and
-                operational efficiency. We help healthcare organizations embrace
-                digital transformation with confidence.
+                ABSN IT Solutions helps organizations design, migrate, and manage
+                secure cloud environments that scale with business growth. Our
+                cloud solutions enable agility, cost efficiency, and high
+                availability across modern IT infrastructures.
               </p>
 
               <p className="industry-subtitle">
@@ -105,18 +105,18 @@ const Healthcare = () => {
               </p>
 
               <ul className="industry-list">
-                <li>Secure management of patient data and medical records</li>
-                <li>Electronic Health Record (EHR) system implementation</li>
-                <li>Telemedicine and remote patient monitoring platforms</li>
-                <li>Healthcare data analytics and reporting</li>
-                <li>Compliance with healthcare regulations and standards</li>
-                <li>Improving clinical workflows and efficiency</li>
+                <li>Cloud migration and modernization strategies</li>
+                <li>Designing scalable and secure cloud architectures</li>
+                <li>DevOps automation and CI/CD pipelines</li>
+                <li>Infrastructure monitoring and cost optimization</li>
+                <li>High availability and disaster recovery planning</li>
+                <li>Multi-cloud and hybrid cloud environments</li>
               </ul>
 
               <p className="industry-footer-text">
-                Our healthcare solutions support hospitals, clinics, and health-tech
-                startups with modern, secure, and scalable systems that enhance
-                care delivery while ensuring privacy, compliance, and reliability.
+                From cloud-native application development to enterprise cloud
+                transformation, our team ensures reliability, performance, and
+                security while enabling faster innovation and delivery.
               </p>
             </div>
 
@@ -158,4 +158,4 @@ const Healthcare = () => {
   );
 };
 
-export default Healthcare;
+export default CloudSolutions;

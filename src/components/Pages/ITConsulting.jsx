@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-const Healthcare = () => {
+const ITConsulting = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
-  /* 🔹 Reveal animation (UP & DOWN) */
+  // 🔹 Reveal animation (scroll up & down)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -25,7 +25,7 @@ const Healthcare = () => {
     return () => observer.disconnect();
   }, []);
 
-  /* 🔹 Back to top */
+  // 🔹 Back to top button
   useEffect(() => {
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 300);
@@ -41,7 +41,7 @@ const Healthcare = () => {
 
   return (
     <div className="page">
-      {/* Force reveal animation */}
+      {/* Fix reveal */}
       <style>
         {`
           .reveal.active {
@@ -58,7 +58,7 @@ const Healthcare = () => {
             className="page-title reveal"
             style={{ textAlign: "center", color: "#1e40af" }}
           >
-            Healthcare Solutions
+            IT Consulting
           </h1>
 
           <p
@@ -69,7 +69,7 @@ const Healthcare = () => {
               textAlign: "center",
             }}
           >
-            Secure and scalable digital solutions for the healthcare industry
+            Professional advisory services for your technology needs
           </p>
         </div>
       </section>
@@ -80,24 +80,24 @@ const Healthcare = () => {
           <div className="industry-detail-layout">
 
             {/* LEFT IMAGE */}
-            <div className="industry-image-card reveal">
+            <div className="industry-image-card reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
               <img
-                src="https://www.innovationnewsnetwork.com/wp-content/uploads/2023/04/%C2%A9-shutterstockeverything-possible_2151408055-696x392.jpg"
-                alt="Healthcare Solutions"
+                src="https://www.cloudavize.com/wp-content/uploads/2024/09/dallas-it-consulting.jpg"
+                alt="IT Consulting"
               />
             </div>
 
             {/* RIGHT CONTENT */}
-            <div className="industry-text-content reveal">
+            <div className="industry-text-content reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
               <h2 className="industry-title">
-                Digital Healthcare Technology Solutions
+                IT Consulting Services
               </h2>
 
               <p className="industry-description">
-                ABSN IT Solutions delivers secure, scalable, and compliant digital
-                healthcare platforms designed to improve patient outcomes and
-                operational efficiency. We help healthcare organizations embrace
-                digital transformation with confidence.
+                IT Consulting at ABSN IT Solutions helps organizations make
+                informed technology decisions that align with business goals.
+                We provide expert guidance to improve efficiency, scalability,
+                and long-term digital success.
               </p>
 
               <p className="industry-subtitle">
@@ -105,18 +105,18 @@ const Healthcare = () => {
               </p>
 
               <ul className="industry-list">
-                <li>Secure management of patient data and medical records</li>
-                <li>Electronic Health Record (EHR) system implementation</li>
-                <li>Telemedicine and remote patient monitoring platforms</li>
-                <li>Healthcare data analytics and reporting</li>
-                <li>Compliance with healthcare regulations and standards</li>
-                <li>Improving clinical workflows and efficiency</li>
+                <li>Analyzing existing IT infrastructure and workflows</li>
+                <li>Identifying performance and efficiency improvements</li>
+                <li>Selecting the right tools, platforms, and technologies</li>
+                <li>Aligning IT strategies with business growth objectives</li>
+                <li>Reducing operational risks and technology costs</li>
+                <li>Supporting digital transformation initiatives</li>
               </ul>
 
               <p className="industry-footer-text">
-                Our healthcare solutions support hospitals, clinics, and health-tech
-                startups with modern, secure, and scalable systems that enhance
-                care delivery while ensuring privacy, compliance, and reliability.
+                Our consulting services empower organizations to modernize IT
+                environments, improve decision-making, and build resilient
+                technology strategies that support long-term success.
               </p>
             </div>
 
@@ -134,7 +134,7 @@ const Healthcare = () => {
             bottom: "20px",
             right: "20px",
             backgroundColor: "#1e40af",
-            color: "#fff",
+            color: "white",
             border: "none",
             borderRadius: "50%",
             width: "50px",
@@ -158,4 +158,4 @@ const Healthcare = () => {
   );
 };
 
-export default Healthcare;
+export default ITConsulting;

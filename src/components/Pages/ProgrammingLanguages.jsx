@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Healthcare = () => {
+const ProgrammingLanguages = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   /* 🔹 Reveal animation (UP & DOWN) */
@@ -58,7 +58,7 @@ const Healthcare = () => {
             className="page-title reveal"
             style={{ textAlign: "center", color: "#1e40af" }}
           >
-            Healthcare Solutions
+            Programming Languages
           </h1>
 
           <p
@@ -69,7 +69,7 @@ const Healthcare = () => {
               textAlign: "center",
             }}
           >
-            Secure and scalable digital solutions for the healthcare industry
+            Mastering multiple programming languages for diverse solutions
           </p>
         </div>
       </section>
@@ -82,41 +82,41 @@ const Healthcare = () => {
             {/* LEFT IMAGE */}
             <div className="industry-image-card reveal">
               <img
-                src="https://www.innovationnewsnetwork.com/wp-content/uploads/2023/04/%C2%A9-shutterstockeverything-possible_2151408055-696x392.jpg"
-                alt="Healthcare Solutions"
+                src="https://media.istockphoto.com/id/1730268726/photo/programming-languages-titles-with-c-plus-plus-phrase-in-blue-color.jpg?s=612x612&w=0&k=20&c=wzClHvvt3eMBXESAUxT1QOfQTLU7nl3A_C3ipzi9JZQ="
+                alt="Programming Languages"
               />
             </div>
 
             {/* RIGHT CONTENT */}
             <div className="industry-text-content reveal">
               <h2 className="industry-title">
-                Digital Healthcare Technology Solutions
+                Multi-Language Development Expertise
               </h2>
 
               <p className="industry-description">
-                ABSN IT Solutions delivers secure, scalable, and compliant digital
-                healthcare platforms designed to improve patient outcomes and
-                operational efficiency. We help healthcare organizations embrace
-                digital transformation with confidence.
+                ABSN IT Solutions leverages a broad range of programming languages
+                to build reliable, secure, and high-performance applications.
+                We choose the right language for each project to ensure
+                scalability, efficiency, and long-term maintainability.
               </p>
 
               <p className="industry-subtitle">
-                Key challenges we address:
+                Programming languages we work with:
               </p>
 
               <ul className="industry-list">
-                <li>Secure management of patient data and medical records</li>
-                <li>Electronic Health Record (EHR) system implementation</li>
-                <li>Telemedicine and remote patient monitoring platforms</li>
-                <li>Healthcare data analytics and reporting</li>
-                <li>Compliance with healthcare regulations and standards</li>
-                <li>Improving clinical workflows and efficiency</li>
+                <li>Java for enterprise and backend systems</li>
+                <li>Python for data processing, automation, and AI</li>
+                <li>JavaScript for modern web and full-stack development</li>
+                <li>C# for .NET-based applications</li>
+                <li>TypeScript for scalable frontend architectures</li>
+                <li>Other specialized languages as project requirements demand</li>
               </ul>
 
               <p className="industry-footer-text">
-                Our healthcare solutions support hospitals, clinics, and health-tech
-                startups with modern, secure, and scalable systems that enhance
-                care delivery while ensuring privacy, compliance, and reliability.
+                Our expertise across multiple programming languages allows us to
+                deliver flexible, future-ready solutions that align perfectly
+                with your business and technical goals.
               </p>
             </div>
 
@@ -158,4 +158,4 @@ const Healthcare = () => {
   );
 };
 
-export default Healthcare;
+export default ProgrammingLanguages;

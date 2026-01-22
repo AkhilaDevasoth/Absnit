@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Healthcare = () => {
+const DevOpsTools = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   /* 🔹 Reveal animation (UP & DOWN) */
@@ -58,7 +58,7 @@ const Healthcare = () => {
             className="page-title reveal"
             style={{ textAlign: "center", color: "#1e40af" }}
           >
-            Healthcare Solutions
+            DevOps Tools
           </h1>
 
           <p
@@ -69,7 +69,7 @@ const Healthcare = () => {
               textAlign: "center",
             }}
           >
-            Secure and scalable digital solutions for the healthcare industry
+            Streamlining development and operations
           </p>
         </div>
       </section>
@@ -82,41 +82,41 @@ const Healthcare = () => {
             {/* LEFT IMAGE */}
             <div className="industry-image-card reveal">
               <img
-                src="https://www.innovationnewsnetwork.com/wp-content/uploads/2023/04/%C2%A9-shutterstockeverything-possible_2151408055-696x392.jpg"
-                alt="Healthcare Solutions"
+                src="https://media.istockphoto.com/id/1352203098/photo/devops-software-development-and-it-operations-engineer-working-in-agile-methodology.jpg?s=612x612&w=0&k=20&c=hcyR7V30yi70_GS9BAwDR9WWzHhG9VWwvdxwghmhOJw="
+                alt="DevOps Tools and Automation"
               />
             </div>
 
             {/* RIGHT CONTENT */}
             <div className="industry-text-content reveal">
               <h2 className="industry-title">
-                Digital Healthcare Technology Solutions
+                DevOps Automation & Tooling
               </h2>
 
               <p className="industry-description">
-                ABSN IT Solutions delivers secure, scalable, and compliant digital
-                healthcare platforms designed to improve patient outcomes and
-                operational efficiency. We help healthcare organizations embrace
-                digital transformation with confidence.
+                ABSN IT Solutions leverages modern DevOps tools and practices to
+                automate workflows, improve collaboration, and ensure fast,
+                reliable software delivery. Our DevOps expertise helps teams
+                build, test, and deploy applications efficiently.
               </p>
 
               <p className="industry-subtitle">
-                Key challenges we address:
+                DevOps tools and practices we use:
               </p>
 
               <ul className="industry-list">
-                <li>Secure management of patient data and medical records</li>
-                <li>Electronic Health Record (EHR) system implementation</li>
-                <li>Telemedicine and remote patient monitoring platforms</li>
-                <li>Healthcare data analytics and reporting</li>
-                <li>Compliance with healthcare regulations and standards</li>
-                <li>Improving clinical workflows and efficiency</li>
+                <li>Docker for containerized application deployment</li>
+                <li>Kubernetes for container orchestration and scaling</li>
+                <li>CI/CD pipelines using Jenkins and GitHub Actions</li>
+                <li>Infrastructure as Code (IaC)</li>
+                <li>Monitoring and logging solutions</li>
+                <li>Cloud-native DevOps practices</li>
               </ul>
 
               <p className="industry-footer-text">
-                Our healthcare solutions support hospitals, clinics, and health-tech
-                startups with modern, secure, and scalable systems that enhance
-                care delivery while ensuring privacy, compliance, and reliability.
+                Our DevOps solutions enable faster releases, higher system
+                reliability, and continuous improvement through automation and
+                best-in-class tooling.
               </p>
             </div>
 
@@ -158,4 +158,4 @@ const Healthcare = () => {
   );
 };
 
-export default Healthcare;
+export default DevOpsTools;

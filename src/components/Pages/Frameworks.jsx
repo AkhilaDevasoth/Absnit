@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Healthcare = () => {
+const Frameworks = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   /* 🔹 Reveal animation (UP & DOWN) */
@@ -58,7 +58,7 @@ const Healthcare = () => {
             className="page-title reveal"
             style={{ textAlign: "center", color: "#1e40af" }}
           >
-            Healthcare Solutions
+            Frameworks
           </h1>
 
           <p
@@ -69,7 +69,7 @@ const Healthcare = () => {
               textAlign: "center",
             }}
           >
-            Secure and scalable digital solutions for the healthcare industry
+            Modern frameworks for rapid and scalable development
           </p>
         </div>
       </section>
@@ -82,41 +82,42 @@ const Healthcare = () => {
             {/* LEFT IMAGE */}
             <div className="industry-image-card reveal">
               <img
-                src="https://www.innovationnewsnetwork.com/wp-content/uploads/2023/04/%C2%A9-shutterstockeverything-possible_2151408055-696x392.jpg"
-                alt="Healthcare Solutions"
+                src="https://www.cerebruminfotech.com/blog/wp-content/uploads/2022/09/What-is-a-Framework-in-Programming-.png"
+                alt="Modern Software Frameworks"
               />
             </div>
 
             {/* RIGHT CONTENT */}
             <div className="industry-text-content reveal">
               <h2 className="industry-title">
-                Digital Healthcare Technology Solutions
+                Modern Development Frameworks
               </h2>
 
               <p className="industry-description">
-                ABSN IT Solutions delivers secure, scalable, and compliant digital
-                healthcare platforms designed to improve patient outcomes and
-                operational efficiency. We help healthcare organizations embrace
-                digital transformation with confidence.
+                ABSN IT Solutions leverages modern, robust, and proven software
+                frameworks to build scalable, maintainable, and high-performance
+                applications. Our expertise ensures faster development cycles
+                and long-term application stability.
               </p>
 
               <p className="industry-subtitle">
-                Key challenges we address:
+                Frameworks we specialize in:
               </p>
 
               <ul className="industry-list">
-                <li>Secure management of patient data and medical records</li>
-                <li>Electronic Health Record (EHR) system implementation</li>
-                <li>Telemedicine and remote patient monitoring platforms</li>
-                <li>Healthcare data analytics and reporting</li>
-                <li>Compliance with healthcare regulations and standards</li>
-                <li>Improving clinical workflows and efficiency</li>
+                <li>React.js for dynamic and responsive front-end applications</li>
+                <li>Angular for enterprise-grade web solutions</li>
+                <li>.NET framework for secure and scalable backend systems</li>
+                <li>Django for rapid backend development</li>
+                <li>Node.js frameworks for real-time applications</li>
+                <li>Microservices and API-driven architectures</li>
               </ul>
 
               <p className="industry-footer-text">
-                Our healthcare solutions support hospitals, clinics, and health-tech
-                startups with modern, secure, and scalable systems that enhance
-                care delivery while ensuring privacy, compliance, and reliability.
+                By using the right frameworks for each project, we ensure
+                flexibility, scalability, and maintainability while delivering
+                modern applications that meet business goals and performance
+                expectations.
               </p>
             </div>
 
@@ -158,4 +159,4 @@ const Healthcare = () => {
   );
 };
 
-export default Healthcare;
+export default Frameworks;
