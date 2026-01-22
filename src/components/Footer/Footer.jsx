@@ -1,15 +1,46 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const Footer = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const reveals = document.querySelectorAll(".footer-reveal");
+      const windowHeight = window.innerHeight;
+      const elementVisible = 50; // Lower threshold to trigger earlier
+
+      reveals.forEach((reveal) => {
+        const rect = reveal.getBoundingClientRect();
+        // Check if element is within view (even partially)
+        if (rect.top <= windowHeight - elementVisible) {
+          reveal.classList.add("active");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll); // Handle resize too
+
+    // Trigger immediately and after short delay to ensure layout is done
+    handleScroll();
+    setTimeout(handleScroll, 100);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, [location]); // Re-run on location change
+
   return (
     <footer className="footer">
-      <div className="footer-container">
+      <div className="footer-container footer-reveal">
 
         {/* 🔹 MAIN ROW */}
         <div className="footer-main">
 
           {/* LEFT: LOGO + DESCRIPTION */}
-          <div className="footer-brand">
+          <div className="footer-brand footer-reveal">
             <Link to="/" className="footer-logo-link">
               <img
                 src="https://absnit.com/wp-content/uploads/2025/05/Logo-Img.png"
@@ -27,7 +58,7 @@ const Footer = () => {
           {/* RIGHT: LINKS SECTIONS */}
           <div className="footer-links-area">
 
-            <div className="footer-section">
+            <div className="footer-section footer-reveal">
               <h4 className="footer-title">Quick Links</h4>
               <ul className="footer-links">
                 <li><Link to="/">Home</Link></li>
@@ -39,7 +70,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="footer-section">
+            <div className="footer-section footer-reveal">
               <h4 className="footer-title">Contact</h4>
               <ul className="footer-contact">
                 <li>
@@ -57,7 +88,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="footer-section">
+            <div className="footer-section footer-reveal">
               <h4 className="footer-title">Follow Us</h4>
               <div className="social-links">
                 <a href="#">Facebook</a>
@@ -71,7 +102,7 @@ const Footer = () => {
         </div>
 
         {/* 🔹 BOTTOM */}
-        <div className="footer-bottom">
+        <div className="footer-bottom footer-reveal">
           <p>© {new Date().getFullYear()} Absnit. All rights reserved.</p>
         </div>
       </div>

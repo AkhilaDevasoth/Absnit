@@ -26,7 +26,8 @@ const Contact = () => {
         <div className="page">
             <section className="page-hero">
                 <div className="container">
-                    <h1 className="page-title">Contact Us</h1>
+                    <h1 className="page-title"
+                    style={{ color: "#1e40af" }}>Contact Us</h1>
                     <p className="page-subtitle">Get in touch with us today</p>
                 </div>
             </section>

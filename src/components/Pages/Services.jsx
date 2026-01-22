@@ -8,40 +8,40 @@ const Services = () => {
       title: "Custom Software Development",
       description:
         "We specialize in developing custom software solutions that streamline operations and enhance productivity. Our team works closely with clients to understand their needs and deliver software that aligns with their business objectives.",
-      bgImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7BHYQlLV4N5saMAvHOsdfepqotH4dU_HeUQ&s",
+      bgImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7BHYQlLV4N5saMAvHOsdfepqotH4dU_HeUQ&s",
     },
     {
       id: "mobile-app-development",
       title: "Mobile App Development",
       description:
         "Building high-performance mobile apps with great UX for Android and iOS.",
-      bgImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2uBM038BvdkRc9wumCPfA5hed6uqpSchnQ&s",
+      bgImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_2uBM038BvdkRc9wumCPfA5hed6uqpSchnQ&s",
     },
     {
       id: "cloud-solutions",
       title: "Cloud Solutions",
       description:
         "Scalable cloud architecture, migrations, and DevOps for reliable delivery.",
-     bgImage:"https://media.istockphoto.com/id/2219130406/photo/cloud-computing-symbol-connects-to-server-datacenter-network.jpg?s=612x612&w=0&k=20&c=XBbhS7J1B8hQxujIuL9vHREn_h3VzFLEXhEyzRX2T_U=",
+      bgImage: "https://media.istockphoto.com/id/2219130406/photo/cloud-computing-symbol-connects-to-server-datacenter-network.jpg?s=612x612&w=0&k=20&c=XBbhS7J1B8hQxujIuL9vHREn_h3VzFLEXhEyzRX2T_U=",
     },
     {
       id: "it-consulting",
       title: "IT Consulting",
       description:
         "Expert advice on technology strategy and digital transformation.",
-        bgImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfBjAvm8tyw9_Xg1JntAygJYYxiX_7kqBfCg&s",
+      bgImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfBjAvm8tyw9_Xg1JntAygJYYxiX_7kqBfCg&s",
     },
     {
       id: "cybersecurity-services",
       title: "Cybersecurity Services",
       description:
         "Security-first engineering, audits, and best practices to protect your systems.",
-     bgImage:"https://media.istockphoto.com/id/1402450534/photo/padlock-with-keyhole-in-data-security-on-circuit-modern-safety-digital-concept.jpg?s=612x612&w=0&k=20&c=vBzRPNY53FvkckEBjRxZBm-3QTQd3bttgglFRPgYOqc=",
+      bgImage: "https://media.istockphoto.com/id/1402450534/photo/padlock-with-keyhole-in-data-security-on-circuit-modern-safety-digital-concept.jpg?s=612x612&w=0&k=20&c=vBzRPNY53FvkckEBjRxZBm-3QTQd3bttgglFRPgYOqc=",
     },
   ];
 
   const [hoverTitle, setHoverTitle] = useState(null); // for hover bg
-const [activeTitle, setActiveTitle] = useState(null);
+  const [activeTitle, setActiveTitle] = useState(null);
 
   return (
     <div className="page">
@@ -57,7 +57,7 @@ const [activeTitle, setActiveTitle] = useState(null);
           <p
             className="page-subtitle"
             style={{
-                 fontSize: "22px",
+              fontSize: "22px",
               lineHeight: "1.4",
               textAlign: "center",
             }}
@@ -68,26 +68,25 @@ const [activeTitle, setActiveTitle] = useState(null);
       </section>
 
       {/* SERVICES GRID */}
-       {/* GRID */}
+      {/* GRID */}
       <section className="services-content">
         <div className="container">
-          <div className="services-grid">
+          <div className="inner-services-grid">
             {services.map((item) => {
               const showBg = hoverTitle === item.title && item.bgImage;
 
               return (
                 <div
                   key={item.title}
-                  className={`service-card ${
-                    showBg ? "service-card-with-bg" : ""
-                  }`}
+                  className={`service-card ${showBg ? "service-card-with-bg" : ""
+                    }`}
                   style={
                     showBg
                       ? {
-                          backgroundImage: `url(${item.bgImage})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                        }
+                        backgroundImage: `url(${item.bgImage})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }
                       : undefined
                   }
                   onMouseEnter={() => setHoverTitle(item.title)}
