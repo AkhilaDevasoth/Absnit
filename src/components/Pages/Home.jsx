@@ -1,36 +1,29 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
-
-
-
-
 const Home = () => {
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          } else {
-            // 👇 REMOVE when out of view (important)
-            entry.target.classList.remove("active");
-          }
-        });
-      },
-      {
-        threshold: 0.15,
-      }
-    );
+ useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        } else {
+          // 🔥 enables reveal when scrolling UP again
+          entry.target.classList.remove("active");
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
 
-    document.querySelectorAll(".reveal").forEach((el) =>
-      observer.observe(el)
-    );
+  document.querySelectorAll(".reveal").forEach((el) =>
+    observer.observe(el)
+  );
 
-    return () => observer.disconnect();
-  }, []);
+  return () => observer.disconnect();
+}, []);
 
 
 
@@ -175,7 +168,7 @@ const Home = () => {
 
             <Link to="/services" className="home-service-card reveal">
               <img
-                src="https://www.bestwebmasterz.com/images/mobile-applications.jpg"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvSCeRy0fQOfBrkEgwAVQx8nhJ4HEtkgvgSg&s"
                 alt="Mobile Apps"
               />
               <h3>Mobile Applications</h3>
@@ -183,7 +176,7 @@ const Home = () => {
 
             <Link to="/services" className="home-service-card reveal">
               <img
-                src="https://www.infoworld.com/wp-content/uploads/2025/12/2238873-0-28389800-1767216406-cloud_computing_trends2.jpg?quality=50&strip=all"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoQ9H8Pn3VZDh5E6viugeKvf9t_-H-3ghfwg&s"
                 alt="Cloud Solutions"
               />
               <h3>Cloud Solutions</h3>
@@ -191,7 +184,7 @@ const Home = () => {
 
             <Link to="/services" className="home-service-card reveal">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl91NhFWLX-EZZS2K3JDpc4kZ7ENmk-q31Ww&s"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ47ChWWRqTJ3tlPVEGG8WiKDCoOThiAUBT_w&s"
                 alt="IT Consulting"
               />
               <h3>IT Consulting</h3>
@@ -199,8 +192,7 @@ const Home = () => {
 
             <Link to="/services" className="home-service-card reveal">
               <img
-                src="https://media.istockphoto.com/id/1383553886/vector/abstract-banner-cyber-security-in-3d-style-communication-technology-database-system.jpg?s=612x612&w=0&k=20&c=H_EGuMLGF8qTCp_aqYHIyYgUUz-V66gSGffmHV8elOw="
-                alt="Cybersecurity"
+                src="https://static.vecteezy.com/system/resources/previews/044/189/079/non_2x/cyber-security-line-blue-two-color-icon-vector.jpg"
               />
               <h3>Cybersecurity</h3>
             </Link>
@@ -250,6 +242,65 @@ const Home = () => {
 
         </div>
       </section>
+      <section className="services-section">
+   <div className="container">
+    <h2 className="home-services-title">
+      Services Overview
+    </h2>
+
+    <p className="home-services-subtitle">
+      Industry-focused technology solutions and consulting services tailored to your
+      business needs.
+    </p>
+
+
+    {/* ✅ GRID WRAPPER */}
+    <div className="home-services-grid reveal">
+      <div className="service-card">
+        <h3>Custom Software Development</h3>
+        <p>
+          We build custom software solutions that streamline operations and enhance productivity.
+        </p>
+      </div>
+
+      <div className="service-card">
+        <h3>Mobile App Development</h3>
+        <p>
+          High-performance mobile applications with intuitive UX for Android and iOS.
+        </p>
+      </div>
+
+      <div className="service-card">
+        <h3>Cloud Solutions</h3>
+        <p>
+          Scalable cloud architecture, migrations, and DevOps services.
+        </p>
+      </div>
+
+      <div className="service-card">
+        <h3>IT Consulting</h3>
+        <p>
+          Strategic IT advisory services to align technology with business goals.
+        </p>
+      </div>
+
+      <div className="service-card">
+        <h3>Cybersecurity Services</h3>
+        <p>
+          Security-first engineering and audits to protect systems and data.
+        </p>
+      </div>
+
+      <div className="service-card">
+        <h3>Healthcare Solutions</h3>
+        <p>
+          Secure digital healthcare solutions including EHR and telemedicine.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     </div>
   );

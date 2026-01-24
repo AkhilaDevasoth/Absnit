@@ -74,7 +74,7 @@ image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE9mB68HiXQ2A4X81wh
         <div className="container">
           <h1
             className="page-title"
-            style={{ textAlign: "center", color: "#1e40af" }}
+            style={{ textAlign: "center", color: "#254A8A" }}
           >
             Our Services
           </h1>

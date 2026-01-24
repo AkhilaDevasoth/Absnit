@@ -2,6 +2,38 @@ import React, { useState, useEffect } from "react";
 
 const ProgrammingLanguages = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
+const faqData = [
+  {
+    question: "What industries do you serve?",
+    answer:
+      "We provide technology solutions across Financial Services, Healthcare, Media & Entertainment, Technology Enablement, Telecommunications, Energy, Consumer & Industrial Products, and Transportation & Travel."
+  },
+  {
+    question: "Do you offer solutions for financial institutions?",
+    answer:
+      "Yes, we deliver secure and scalable solutions for financial institutions including digital transformation, cloud, data analytics, and cybersecurity."
+  },
+  {
+    question: "Can you help with healthcare technology solutions?",
+    answer:
+      "Absolutely. We support healthcare organizations with health IT platforms, interoperability, compliance, and digital transformation."
+  },
+  {
+    question: "Do you work with telecommunications companies?",
+    answer:
+      "Yes, we work with telecom providers on network optimization, cloud platforms, and analytics-driven solutions."
+  },
+  {
+    question: "What technology enablement services do you provide?",
+    answer:
+      "Our services include cloud computing, AI & automation, DevOps, cybersecurity, data engineering, and enterprise application development."
+  },
+  {
+    question: "Do you offer transportation and travel technology solutions?",
+    answer:
+      "Yes, we deliver digital platforms, analytics, and operational optimization solutions for travel and transportation companies."
+  }
+];
 
   /* 🔹 Reveal animation (UP & DOWN) */
   useEffect(() => {

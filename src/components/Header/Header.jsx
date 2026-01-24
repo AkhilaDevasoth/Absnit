@@ -8,17 +8,12 @@ const Header = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="header">
-      <div className="header-container">
-        {/* LOGO */}
-        <Link to="/" className="logo">
-          <img
-            src="https://absnit.com/wp-content/uploads/2025/05/Logo-Img.png"
-            alt="Absnit logo"
-            className="logo-img"
-          />
-        </Link>
-
+    <header className="site-header">
+  <div className="header-container">
+    {/* LOGO – LEFT */}
+    <Link to="/" className="logo">
+      <img src="/logo.png" alt="ABSN IT Solutions" />
+    </Link>
         {/* NAV */}
         <nav className="nav">
           <Link to="/" className={`nav-link ${isActive("/") ? "active" : ""}`}>

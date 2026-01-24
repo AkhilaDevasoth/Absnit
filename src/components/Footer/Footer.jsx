@@ -1,110 +1,78 @@
-import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const reveals = document.querySelectorAll(".footer-reveal");
-      const windowHeight = window.innerHeight;
-      const elementVisible = 50; // Lower threshold to trigger earlier
-
-      reveals.forEach((reveal) => {
-        const rect = reveal.getBoundingClientRect();
-        // Check if element is within view (even partially)
-        if (rect.top <= windowHeight - elementVisible) {
-          reveal.classList.add("active");
-        }
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleScroll); // Handle resize too
-
-    // Trigger immediately and after short delay to ensure layout is done
-    handleScroll();
-    setTimeout(handleScroll, 100);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, [location]); // Re-run on location change
-
   return (
-    <footer className="footer">
-      <div className="footer-container footer-reveal">
+    <footer className="site-footer">
+      <div className="footer-container">
 
-        {/* 🔹 MAIN ROW */}
-        <div className="footer-main">
+        {/* LEFT: Logo + About */}
+        <div className="footer-col footer-about">
+          <Link to="/" className="footer-logo">
+  <img src="/footer-logo.png" alt="ABSN IT Solutions" />
+</Link>
 
-          {/* LEFT: LOGO + DESCRIPTION */}
-          <div className="footer-brand footer-reveal">
-            <Link to="/" className="footer-logo-link">
-              <img
-                src="https://absnit.com/wp-content/uploads/2025/05/Logo-Img.png"
-                alt="Absnit logo"
-                className="footer-logo-img"
-              />
-            </Link>
-
-            <p className="footer-description">
-              Building innovative solutions for the modern web.
-              We create exceptional digital experiences that drive results.
-            </p>
-          </div>
-
-          {/* RIGHT: LINKS SECTIONS */}
-          <div className="footer-links-area">
-
-            <div className="footer-section footer-reveal">
-              <h4 className="footer-title">Quick Links</h4>
-              <ul className="footer-links">
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/services">Services</Link></li>
-                <li><Link to="/industries">Industries</Link></li>
-                <li><Link to="/technology">Technology</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-              </ul>
-            </div>
-
-            <div className="footer-section footer-reveal">
-              <h4 className="footer-title">Contact</h4>
-              <ul className="footer-contact">
-                <li>
-                  Email:{" "}
-                  <a href="mailto:info@absnit.com">info@absnit.com</a>
-                </li>
-                <li>
-                  Phone:{" "}
-                  <a href="tel:+919948550646">+91 9948550646</a>
-                </li>
-                <li>
-                  Address: 1-111 Madhannapet, Narsampet,
-                  Warangal, Telangana 506132
-                </li>
-              </ul>
-            </div>
-
-            <div className="footer-section footer-reveal">
-              <h4 className="footer-title">Follow Us</h4>
-              <div className="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Instagram</a>
-              </div>
-            </div>
-
-          </div>
+          <p className="footer-desc">
+            ABSN IT Solutions is a technology and digital transformation partner.
+            We help businesses design, develop, and scale modern digital solutions.
+          </p>
         </div>
 
-        {/* 🔹 BOTTOM */}
-        <div className="footer-bottom footer-reveal">
-          <p>© {new Date().getFullYear()} Absnit. All rights reserved.</p>
+        {/* COLUMN 2: Explore */}
+        <div className="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><Link to="/services">Services</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/careers">Careers</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </ul>
         </div>
+
+        {/* COLUMN 3: Technologies */}
+        <div className="footer-col">
+          <h4>Technologies</h4>
+          <ul>
+            <li>AI</li>
+            <li>Cloud Computing</li>
+            <li>DevOps</li>
+            <li>Web Development</li>
+            <li>IoT</li>
+          </ul>
+        </div>
+
+        {/* COLUMN 4: Industries */}
+        <div className="footer-col">
+          <h4>Industries</h4>
+          <ul>
+            <li>Healthcare</li>
+            <li>Financial Services</li>
+            <li>Technology Enablement</li>
+            <li>Media & Entertainment</li>
+            <li>Transportation & Travel</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* ADDRESSES */}
+      <div className="footer-addresses">
+        <div className="address">
+          <h5>ABSN IT Headquarters</h5>
+          <p>Hyderabad, Telangana, India</p>
+          <p>📞 +91 9948550646</p>
+          <p>✉️ info@absnit.com</p>
+        </div>
+
+        <div className="address">
+          <h5>Development Center</h5>
+          <p>Warangal, Telangana, India</p>
+          <p>📞 +91 9948550646</p>
+          <p>✉️ info@absnit.com</p>
+        </div>
+      </div>
+
+      {/* COPYRIGHT */}
+      <div className="footer-bottom">
+        © {new Date().getFullYear()} ABSN IT Solutions. All rights reserved.
       </div>
     </footer>
   );

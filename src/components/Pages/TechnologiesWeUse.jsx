@@ -57,7 +57,7 @@ const TechologiesWeUse = () => {
         <div className="container">
           <h1
             className="page-title"
-            style={{ textAlign: "center", color: "#1e40af" }}
+            style={{ textAlign: "center", color: "#254A8A" }}
           >
             Technologies We Use
           </h1>
