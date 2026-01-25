@@ -2,18 +2,15 @@ import React, { useState, useEffect } from "react";
 
 const ITConsulting = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [activeTab, setActiveTab] = useState("strategy");
 
-  // 🔹 Reveal animation (scroll up & down)
+  /* 🔹 Reveal animation */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          } else {
-            entry.target.classList.remove("active");
-          }
-        });
+        entries.forEach((entry) =>
+          entry.target.classList.toggle("active", entry.isIntersecting)
+        );
       },
       { threshold: 0.15 }
     );
@@ -25,23 +22,20 @@ const ITConsulting = () => {
     return () => observer.disconnect();
   }, []);
 
-  // 🔹 Back to top button
+  /* 🔹 Back to top */
   useEffect(() => {
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 300);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTop = () => {
+  const scrollToTop = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <div className="page">
-      {/* Fix reveal */}
       <style>
         {`
           .reveal.active {
@@ -54,71 +48,196 @@ const ITConsulting = () => {
       {/* HERO */}
       <section className="page-hero">
         <div className="container">
-          <h1
-            className="page-title reveal"
-            style={{ textAlign: "center", color: "#1e40af" }}
-          >
+          <h1 className="page-title reveal" style={{ textAlign: "center", color: "#1e40af" }}>
             IT Consulting
           </h1>
-
-          <p
-            className="page-subtitle reveal"
-            style={{
-              fontSize: "22px",
-              lineHeight: "1.4",
-              textAlign: "center",
-            }}
-          >
+          <p className="page-subtitle reveal" style={{ fontSize: "22px", textAlign: "center" }}>
             Professional advisory services for your technology needs
           </p>
         </div>
       </section>
 
-      {/* CONTENT */}
+   {/* MAIN CONTENT */}
+<section className="services-content">
+  <div className="container">
+    <div className="industry-detail-layout">
+
+      <div className="industry-image-card reveal">
+        <img
+          src="https://www.cloudavize.com/wp-content/uploads/2024/09/dallas-it-consulting.jpg"
+          alt="IT Consulting"
+        />
+      </div>
+
+      <div className="industry-text-content reveal">
+        <h2 className="industry-title">IT Consulting Services</h2>
+
+        <p className="industry-description">
+          IT Consulting at ABSN IT Solutions helps organizations make informed
+          technology decisions aligned with business goals. We guide enterprises
+          through modernization, optimization, and digital transformation
+          initiatives to improve efficiency, agility, and competitiveness.
+        </p>
+
+        <p className="industry-description">
+          Our consulting approach focuses on understanding your current IT
+          landscape, identifying gaps, and recommending practical solutions
+          that drive measurable business outcomes. We work closely with
+          stakeholders to ensure technology investments deliver long-term value.
+        </p>
+
+        <p className="industry-subtitle">
+          Our IT consulting services include:
+        </p>
+
+        <ul className="industry-list">
+          <li>IT strategy and technology roadmap planning</li>
+          <li>Infrastructure assessment and optimization</li>
+          <li>Cloud adoption and digital transformation consulting</li>
+          <li>Application modernization and system upgrades</li>
+          <li>Cybersecurity and risk assessment advisory</li>
+          <li>Process improvement and operational efficiency analysis</li>
+        </ul>
+
+        <p className="industry-footer-text">
+          Our consultants combine deep technical expertise with strong business
+          insight to deliver scalable, secure, and future-ready IT strategies
+          that support sustainable growth and long-term success.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+      {/* ===============================
+          IT CONSULTING – TAB SECTION
+      ================================ */}
       <section className="services-content">
         <div className="container">
-          <div className="industry-detail-layout">
 
-            {/* LEFT IMAGE */}
-            <div className="industry-image-card reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
-              <img
-                src="https://www.cloudavize.com/wp-content/uploads/2024/09/dallas-it-consulting.jpg"
-                alt="IT Consulting"
-              />
-            </div>
+          {/* TABS */}
+          <div className="devops-tabs reveal">
+            <button
+              className={`industry-box ${activeTab === "strategy" ? "active" : ""}`}
+              onClick={() => setActiveTab("strategy")}
+            >
+              IT Strategy
+            </button>
 
-            {/* RIGHT CONTENT */}
-            <div className="industry-text-content reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
-              <h2 className="industry-title">
-                IT Consulting Services
-              </h2>
+            <button
+              className={`industry-box ${activeTab === "assessment" ? "active" : ""}`}
+              onClick={() => setActiveTab("assessment")}
+            >
+              IT Assessment
+            </button>
 
-              <p className="industry-description">
-                IT Consulting at ABSN IT Solutions helps organizations make
-                informed technology decisions that align with business goals.
-                We provide expert guidance to improve efficiency, scalability,
-                and long-term digital success.
-              </p>
+            <button
+              className={`industry-box ${activeTab === "transformation" ? "active" : ""}`}
+              onClick={() => setActiveTab("transformation")}
+            >
+              Digital Transformation
+            </button>
 
-              <p className="industry-subtitle">
-                Key challenges we address:
-              </p>
+            <button
+              className={`industry-box ${activeTab === "governance" ? "active" : ""}`}
+              onClick={() => setActiveTab("governance")}
+            >
+              Governance & Risk
+            </button>
+          </div>
 
-              <ul className="industry-list">
-                <li>Analyzing existing IT infrastructure and workflows</li>
-                <li>Identifying performance and efficiency improvements</li>
-                <li>Selecting the right tools, platforms, and technologies</li>
-                <li>Aligning IT strategies with business growth objectives</li>
-                <li>Reducing operational risks and technology costs</li>
-                <li>Supporting digital transformation initiatives</li>
-              </ul>
+          {/* CONTENT CARD */}
+          <div className="service-card reveal devops-card">
 
-              <p className="industry-footer-text">
-                Our consulting services empower organizations to modernize IT
-                environments, improve decision-making, and build resilient
-                technology strategies that support long-term success.
-              </p>
-            </div>
+            {activeTab === "strategy" && (
+              <>
+                <h2>IT Strategy & Roadmapping</h2>
+                <p>
+                  A clear IT strategy is essential for sustainable business
+                  growth. We help organizations define technology roadmaps
+                  that align IT investments with long-term business goals.
+                </p>
+                <ul>
+                  <li>IT vision and strategic planning</li>
+                  <li>Technology roadmap development</li>
+                  <li>Application and infrastructure strategy</li>
+                  <li>Cloud and modernization planning</li>
+                  <li>Cost optimization and ROI analysis</li>
+                </ul>
+                <p>
+                  Our IT strategy services provide clarity, direction, and
+                  measurable outcomes.
+                </p>
+              </>
+            )}
+
+            {activeTab === "assessment" && (
+              <>
+                <h2>IT Assessment & Optimization</h2>
+                <p>
+                  Understanding the current state of IT systems is critical
+                  for improvement. We assess infrastructure, applications,
+                  security, and processes to identify gaps and opportunities.
+                </p>
+                <ul>
+                  <li>Infrastructure and application assessment</li>
+                  <li>Performance and scalability analysis</li>
+                  <li>Security and compliance evaluation</li>
+                  <li>Process efficiency and cost review</li>
+                  <li>Actionable improvement recommendations</li>
+                </ul>
+                <p>
+                  Our assessments help organizations improve efficiency and
+                  reduce operational risks.
+                </p>
+              </>
+            )}
+
+            {activeTab === "transformation" && (
+              <>
+                <h2>Digital Transformation Consulting</h2>
+                <p>
+                  Digital transformation requires more than technology—it
+                  demands cultural and process change. We guide organizations
+                  through end-to-end digital transformation initiatives.
+                </p>
+                <ul>
+                  <li>Legacy system modernization</li>
+                  <li>Cloud migration and adoption</li>
+                  <li>Process automation and digitization</li>
+                  <li>Data-driven decision enablement</li>
+                  <li>Change management and adoption support</li>
+                </ul>
+                <p>
+                  Our transformation services help businesses innovate and
+                  compete in digital-first markets.
+                </p>
+              </>
+            )}
+
+            {activeTab === "governance" && (
+              <>
+                <h2>IT Governance, Risk & Compliance</h2>
+                <p>
+                  Strong governance ensures technology investments are secure,
+                  compliant, and well-managed. We help organizations establish
+                  governance frameworks that reduce risk and improve control.
+                </p>
+                <ul>
+                  <li>IT governance framework design</li>
+                  <li>Risk assessment and mitigation</li>
+                  <li>Security and compliance alignment</li>
+                  <li>Policy and standards development</li>
+                  <li>Continuous monitoring and improvement</li>
+                </ul>
+                <p>
+                  Our governance services enable secure, compliant, and
+                  accountable IT operations.
+                </p>
+              </>
+            )}
 
           </div>
         </div>
@@ -126,33 +245,7 @@ const ITConsulting = () => {
 
       {/* BACK TO TOP */}
       {showBackToTop && (
-        <button
-          className="back-to-top-btn"
-          onClick={scrollToTop}
-          style={{
-            position: "fixed",
-            bottom: "20px",
-            right: "20px",
-            backgroundColor: "#1e40af",
-            color: "white",
-            border: "none",
-            borderRadius: "50%",
-            width: "50px",
-            height: "50px",
-            fontSize: "20px",
-            cursor: "pointer",
-            boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
-            zIndex: 1000,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            transition: "all 0.3s ease",
-          }}
-          onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")}
-          onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
-        >
-          ↑
-        </button>
+        <button className="back-to-top-btn" onClick={scrollToTop}>↑</button>
       )}
     </div>
   );

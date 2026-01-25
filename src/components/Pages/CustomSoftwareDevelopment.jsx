@@ -2,22 +2,17 @@ import React, { useState, useEffect } from "react";
 
 const CustomSoftwareDevelopment = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [activeTab, setActiveTab] = useState("enterprise");
 
+  /* 🔹 Reveal animation */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          } else {
-            // 👇 REMOVE when out of view (important)
-            entry.target.classList.remove("active");
-          }
-        });
+        entries.forEach((entry) =>
+          entry.target.classList.toggle("active", entry.isIntersecting)
+        );
       },
-      {
-        threshold: 0.15,
-      }
+      { threshold: 0.15 }
     );
 
     document.querySelectorAll(".reveal").forEach((el) =>
@@ -27,25 +22,18 @@ const CustomSoftwareDevelopment = () => {
     return () => observer.disconnect();
   }, []);
 
+  /* 🔹 Back to top */
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowBackToTop(true);
-      } else {
-        setShowBackToTop(false);
-      }
+      setShowBackToTop(window.scrollY > 300);
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+  const scrollToTop = () =>
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
     <div className="page">
       <style>
@@ -56,43 +44,32 @@ const CustomSoftwareDevelopment = () => {
           }
         `}
       </style>
+
       {/* HERO */}
       <section className="page-hero">
         <div className="container">
-          <h1
-            className="page-title"
-            style={{ textAlign: "center", color: "#1e40af" }}
-          >
+          <h1 className="page-title" style={{ textAlign: "center", color: "#1e40af" }}>
             Custom Software Development
           </h1>
-          <p
-            className="page-subtitle"
-            style={{
-              fontSize: "22px",
-              lineHeight: "1.4",
-              textAlign: "center",
-            }}
-          >
+          <p className="page-subtitle" style={{ fontSize: "22px", textAlign: "center" }}>
             Tailored software solutions to streamline your operations
           </p>
         </div>
       </section>
 
-      {/* CONTENT */}
+      {/* MAIN CONTENT (UNCHANGED) */}
       <section className="services-content">
         <div className="container">
           <div className="industry-detail-layout">
 
-            {/* LEFT IMAGE */}
-            <div className="industry-image-card reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
+            <div className="industry-image-card reveal">
               <img
                 src="https://www.portotheme.com/wp-content/uploads/2023/12/software-development.webp"
                 alt="Custom Software Development"
               />
             </div>
 
-            {/* RIGHT CONTENT */}
-            <div className="industry-text-content reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
+            <div className="industry-text-content reveal">
               <h2 className="industry-title">
                 Custom Software Development Services
               </h2>
@@ -105,9 +82,7 @@ const CustomSoftwareDevelopment = () => {
                 support long-term digital growth.
               </p>
 
-              <p className="industry-subtitle">
-                Key challenges we address:
-              </p>
+              <p className="industry-subtitle">Key challenges we address:</p>
 
               <ul className="industry-list">
                 <li>Designing scalable and future-ready software architectures</li>
@@ -130,35 +105,143 @@ const CustomSoftwareDevelopment = () => {
         </div>
       </section>
 
-      {/* BACK TO TOP BUTTON */}
+      {/* ===============================
+          CUSTOM SOFTWARE – TAB SECTION
+      ================================ */}
+      <section className="services-content">
+        <div className="container">
+
+          {/* TABS */}
+          <div className="devops-tabs reveal">
+            <button
+              className={`industry-box ${activeTab === "enterprise" ? "active" : ""}`}
+              onClick={() => setActiveTab("enterprise")}
+            >
+              Enterprise Software
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "saas" ? "active" : ""}`}
+              onClick={() => setActiveTab("saas")}
+            >
+              SaaS Applications
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "integration" ? "active" : ""}`}
+              onClick={() => setActiveTab("integration")}
+            >
+              System Integration
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "support" ? "active" : ""}`}
+              onClick={() => setActiveTab("support")}
+            >
+              Maintenance & Support
+            </button>
+          </div>
+
+          {/* CONTENT CARD */}
+          <div className="service-card reveal devops-card">
+
+            {activeTab === "enterprise" && (
+              <>
+                <h2>Enterprise Software Development</h2>
+                <p>
+                  We build enterprise-grade software solutions designed to
+                  support complex business operations and large-scale users.
+                  Our enterprise applications focus on performance, security,
+                  and long-term scalability.
+                </p>
+                <ul>
+                  <li>Custom ERP, CRM, and business management systems</li>
+                  <li>Role-based access control and security</li>
+                  <li>Scalable architecture for enterprise growth</li>
+                  <li>High availability and performance optimization</li>
+                  <li>Integration with existing enterprise systems</li>
+                </ul>
+                <p>
+                  Our enterprise software solutions enable organizations to
+                  streamline operations and improve decision-making.
+                </p>
+              </>
+            )}
+
+            {activeTab === "saas" && (
+              <>
+                <h2>SaaS Application Development</h2>
+                <p>
+                  ABSN IT Solutions designs and develops secure, scalable SaaS
+                  platforms that support subscription-based business models and
+                  cloud-native deployments.
+                </p>
+                <ul>
+                  <li>Cloud-native SaaS architecture</li>
+                  <li>Multi-tenant application design</li>
+                  <li>Subscription and billing integration</li>
+                  <li>Secure authentication and user management</li>
+                  <li>Scalability for high user demand</li>
+                </ul>
+                <p>
+                  Our SaaS solutions help businesses launch faster, scale
+                  efficiently, and deliver consistent user experiences.
+                </p>
+              </>
+            )}
+
+            {activeTab === "integration" && (
+              <>
+                <h2>System Integration & APIs</h2>
+                <p>
+                  Seamless integration is critical for modern digital
+                  ecosystems. We build reliable APIs and integration solutions
+                  that connect software systems, platforms, and third-party
+                  services.
+                </p>
+                <ul>
+                  <li>API development and management</li>
+                  <li>Integration with legacy systems</li>
+                  <li>Third-party platform integrations</li>
+                  <li>Secure data exchange and synchronization</li>
+                  <li>Microservices-based integrations</li>
+                </ul>
+                <p>
+                  Our integration services ensure smooth data flow and
+                  interoperability across business systems.
+                </p>
+              </>
+            )}
+
+            {activeTab === "support" && (
+              <>
+                <h2>Application Maintenance & Support</h2>
+                <p>
+                  Long-term software success requires continuous monitoring,
+                  updates, and optimization. We provide ongoing support services
+                  to ensure application stability and performance.
+                </p>
+                <ul>
+                  <li>Proactive monitoring and issue resolution</li>
+                  <li>Performance optimization and upgrades</li>
+                  <li>Security patches and compliance updates</li>
+                  <li>Feature enhancements and scalability support</li>
+                  <li>24/7 technical support and maintenance</li>
+                </ul>
+                <p>
+                  Our maintenance services help organizations keep their
+                  applications reliable, secure, and future-ready.
+                </p>
+              </>
+            )}
+
+          </div>
+        </div>
+      </section>
+
+      {/* BACK TO TOP */}
       {showBackToTop && (
-        <button
-          className="back-to-top-btn"
-          onClick={scrollToTop}
-          style={{
-            position: 'fixed',
-            bottom: '20px',
-            right: '20px',
-            backgroundColor: '#1e40af',
-            color: 'white',
-            border: 'none',
-            borderRadius: '50%',
-            width: '50px',
-            height: '50px',
-            fontSize: '20px',
-            cursor: 'pointer',
-            boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
-            zIndex: 1000,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'}
-          onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-        >
-          ↑
-        </button>
+        <button className="back-to-top-btn" onClick={scrollToTop}>↑</button>
       )}
     </div>
   );

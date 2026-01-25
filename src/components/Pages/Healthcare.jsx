@@ -2,18 +2,15 @@ import React, { useState, useEffect } from "react";
 
 const Healthcare = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [activeTab, setActiveTab] = useState("ehr");
 
-  /* 🔹 Reveal animation (UP & DOWN) */
+  /* 🔹 Reveal animation */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          } else {
-            entry.target.classList.remove("active");
-          }
-        });
+        entries.forEach((entry) =>
+          entry.target.classList.toggle("active", entry.isIntersecting)
+        );
       },
       { threshold: 0.15 }
     );
@@ -27,67 +24,41 @@ const Healthcare = () => {
 
   /* 🔹 Back to top */
   useEffect(() => {
-    const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 300);
-    };
-
+    const handleScroll = () => setShowBackToTop(window.scrollY > 300);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTop = () => {
+  const scrollToTop = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <div className="page">
-      {/* Force reveal animation */}
-      <style>
-        {`
-          .reveal.active {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-          }
-        `}
-      </style>
 
       {/* HERO */}
       <section className="page-hero">
         <div className="container">
-          <h1
-            className="page-title reveal"
-            style={{ textAlign: "center", color: "#1e40af" }}
-          >
+          <h1 className="page-title reveal" style={{ textAlign: "center", color: "#1e40af" }}>
             Healthcare Solutions
           </h1>
-
-          <p
-            className="page-subtitle reveal"
-            style={{
-              fontSize: "22px",
-              lineHeight: "1.4",
-              textAlign: "center",
-            }}
-          >
+          <p className="page-subtitle reveal" style={{ fontSize: "22px", textAlign: "center" }}>
             Secure and scalable digital solutions for the healthcare industry
           </p>
         </div>
       </section>
 
-      {/* CONTENT */}
+      {/* MAIN CONTENT — KEPT SAME */}
       <section className="services-content">
         <div className="container">
           <div className="industry-detail-layout">
 
-            {/* LEFT IMAGE */}
             <div className="industry-image-card reveal">
               <img
-                src="https://www.innovationnewsnetwork.com/wp-content/uploads/2023/04/%C2%A9-shutterstockeverything-possible_2151408055-696x392.jpg"
+                src="https://contentwriters.com/blog/wp-content/uploads/shutterstock_133503068-750x500.jpg"
                 alt="Healthcare Solutions"
               />
             </div>
 
-            {/* RIGHT CONTENT */}
             <div className="industry-text-content reveal">
               <h2 className="industry-title">
                 Digital Healthcare Technology Solutions
@@ -100,9 +71,7 @@ const Healthcare = () => {
                 digital transformation with confidence.
               </p>
 
-              <p className="industry-subtitle">
-                Key challenges we address:
-              </p>
+              <p className="industry-subtitle">Key challenges we address:</p>
 
               <ul className="industry-list">
                 <li>Secure management of patient data and medical records</li>
@@ -124,35 +93,185 @@ const Healthcare = () => {
         </div>
       </section>
 
+      {/* ===============================
+          HEALTHCARE PRACTICES – TAB SECTION
+      ================================ */}
+      <section className="services-content">
+        <div className="container">
+
+          {/* TABS */}
+          <div className="devops-tabs reveal">
+            <button
+              className={`industry-box ${activeTab === "ehr" ? "active" : ""}`}
+              onClick={() => setActiveTab("ehr")}
+            >
+              EHR Systems
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "telemedicine" ? "active" : ""}`}
+              onClick={() => setActiveTab("telemedicine")}
+            >
+              Telemedicine
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "analytics" ? "active" : ""}`}
+              onClick={() => setActiveTab("analytics")}
+            >
+              Healthcare Analytics
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "compliance" ? "active" : ""}`}
+              onClick={() => setActiveTab("compliance")}
+            >
+              Compliance & Security
+            </button>
+          </div>
+
+          {/* CONTENT CARD */}
+          <div className="service-card reveal devops-card">
+
+           {activeTab === "ehr" && (
+  <>
+    <h2>Electronic Health Record (EHR) Systems</h2>
+
+    <p>
+      Electronic Health Record (EHR) systems form the digital backbone of
+      modern healthcare organizations. ABSN IT Solutions develops secure,
+      interoperable, and scalable EHR platforms that centralize patient
+      information and support efficient clinical workflows.
+    </p>
+
+    <p>
+      Our EHR solutions are designed to improve care coordination, reduce
+      medical errors, and enhance data accessibility across departments,
+      ensuring clinicians have real-time access to accurate patient records.
+    </p>
+
+    <ul>
+      <li>Centralized storage of patient medical histories and records</li>
+      <li>Interoperability with labs, pharmacies, and hospital systems</li>
+      <li>Role-based access control for data privacy</li>
+      <li>Clinical decision support and alerts</li>
+      <li>Improved care coordination across departments</li>
+      <li>Scalable architecture for growing healthcare institutions</li>
+    </ul>
+
+    <p>
+      By implementing robust EHR systems, healthcare providers can deliver
+      better patient outcomes, reduce administrative overhead, and ensure
+      compliance with healthcare regulations.
+    </p>
+  </>
+)}
+
+
+         {activeTab === "telemedicine" && (
+  <>
+    <h2>Telemedicine & Remote Patient Care</h2>
+
+    <p>
+      Telemedicine enables healthcare providers to deliver quality care
+      beyond physical boundaries. ABSN IT Solutions builds secure and
+      user-friendly telemedicine platforms that allow patients to consult
+      healthcare professionals remotely.
+    </p>
+
+    <p>
+      Our solutions improve healthcare accessibility, reduce wait times,
+      and enhance patient engagement, especially for rural and remote areas.
+    </p>
+
+    <ul>
+      <li>Secure video consultation and messaging platforms</li>
+      <li>Remote patient monitoring and wearable integration</li>
+      <li>Appointment scheduling and virtual follow-ups</li>
+      <li>Real-time data sharing between patients and providers</li>
+      <li>Integration with EHR and hospital systems</li>
+      <li>HIPAA-compliant communication channels</li>
+    </ul>
+
+    <p>
+      Telemedicine solutions empower healthcare organizations to expand
+      service reach, improve patient satisfaction, and deliver timely care
+      while maintaining security and compliance.
+    </p>
+  </>
+)}
+{activeTab === "analytics" && (
+  <>
+    <h2>Healthcare Data Analytics</h2>
+
+    <p>
+      Data-driven insights play a critical role in improving healthcare
+      quality and operational efficiency. ABSN IT Solutions provides advanced
+      healthcare analytics solutions that transform raw medical data into
+      actionable intelligence.
+    </p>
+
+    <p>
+      Our analytics platforms help healthcare providers track performance,
+      optimize resources, and make informed clinical and operational decisions.
+    </p>
+
+    <ul>
+      <li>Clinical performance and patient outcome dashboards</li>
+      <li>Predictive analytics for early disease detection</li>
+      <li>Operational efficiency and cost optimization insights</li>
+      <li>Population health management analytics</li>
+      <li>Real-time reporting and visualization tools</li>
+      <li>AI-driven insights for better decision-making</li>
+    </ul>
+
+    <p>
+      With healthcare analytics, organizations can improve care delivery,
+      reduce costs, and proactively respond to emerging health trends.
+    </p>
+  </>
+)}
+{activeTab === "compliance" && (
+  <>
+    <h2>Compliance, Security & Privacy</h2>
+
+    <p>
+      Protecting sensitive healthcare data is a top priority. ABSN IT
+      Solutions implements robust security and compliance frameworks that
+      safeguard patient information and ensure adherence to regulatory
+      standards.
+    </p>
+
+    <p>
+      Our healthcare security solutions minimize risks, prevent data breaches,
+      and ensure trust between healthcare providers and patients.
+    </p>
+
+    <ul>
+      <li>HIPAA, HL7, and healthcare compliance support</li>
+      <li>End-to-end data encryption and secure access controls</li>
+      <li>Identity and role-based authentication mechanisms</li>
+      <li>Risk assessment and vulnerability monitoring</li>
+      <li>Secure cloud infrastructure for healthcare platforms</li>
+      <li>Audit trails and compliance reporting</li>
+    </ul>
+
+    <p>
+      By prioritizing security and compliance, healthcare organizations can
+      protect patient privacy, maintain regulatory confidence, and ensure
+      long-term system reliability.
+    </p>
+  </>
+)}
+
+
+          </div>
+        </div>
+      </section>
+
       {/* BACK TO TOP */}
       {showBackToTop && (
-        <button
-          className="back-to-top-btn"
-          onClick={scrollToTop}
-          style={{
-            position: "fixed",
-            bottom: "20px",
-            right: "20px",
-            backgroundColor: "#1e40af",
-            color: "#fff",
-            border: "none",
-            borderRadius: "50%",
-            width: "50px",
-            height: "50px",
-            fontSize: "20px",
-            cursor: "pointer",
-            boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
-            zIndex: 1000,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            transition: "all 0.3s ease",
-          }}
-          onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")}
-          onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
-        >
-          ↑
-        </button>
+        <button className="back-to-top-btn" onClick={scrollToTop}>↑</button>
       )}
     </div>
   );

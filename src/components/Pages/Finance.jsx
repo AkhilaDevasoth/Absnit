@@ -2,84 +2,50 @@ import React, { useState, useEffect } from "react";
 
 const Finance = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [activeTab, setActiveTab] = useState("payments");
 
-  /* 🔹 Reveal animation (UP & DOWN) */
+  /* 🔹 Reveal animation */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          } else {
-            entry.target.classList.remove("active");
-          }
-        });
+        entries.forEach((entry) =>
+          entry.target.classList.toggle("active", entry.isIntersecting)
+        );
       },
       { threshold: 0.15 }
     );
 
-    document.querySelectorAll(".reveal").forEach((el) =>
-      observer.observe(el)
-    );
-
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   /* 🔹 Back to top */
   useEffect(() => {
-    const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 300);
-    };
-
+    const handleScroll = () => setShowBackToTop(window.scrollY > 300);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <div className="page">
-      {/* Force reveal animation */}
-      <style>
-        {`
-          .reveal.active {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-          }
-        `}
-      </style>
 
       {/* HERO */}
       <section className="page-hero">
         <div className="container">
-          <h1
-            className="page-title reveal"
-            style={{ textAlign: "center", color: "#1e40af" }}
-          >
+          <h1 className="page-title reveal" style={{ textAlign: "center", color: "#1e40af" }}>
             Finance Solutions
           </h1>
-
-          <p
-            className="page-subtitle reveal"
-            style={{
-              fontSize: "22px",
-              lineHeight: "1.4",
-              textAlign: "center",
-            }}
-          >
-            Reliable and secure technology solutions for the finance sector
+          <p className="page-subtitle reveal" style={{ fontSize: "22px", textAlign: "center" }}>
+            Secure, compliant, and scalable technology for modern finance
           </p>
         </div>
       </section>
 
-      {/* CONTENT */}
+      {/* MAIN CONTENT — KEPT SAME */}
       <section className="services-content">
         <div className="container">
           <div className="industry-detail-layout">
 
-            {/* LEFT IMAGE */}
             <div className="industry-image-card reveal">
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPKWKqFBe60qGHLSDtMDjNB-xImkfpDV9Kdg&s"
@@ -87,7 +53,6 @@ const Finance = () => {
               />
             </div>
 
-            {/* RIGHT CONTENT */}
             <div className="industry-text-content reveal">
               <h2 className="industry-title">
                 Digital Finance & FinTech Solutions
@@ -100,9 +65,7 @@ const Finance = () => {
                 services while ensuring data security, performance, and trust.
               </p>
 
-              <p className="industry-subtitle">
-                Key challenges we address:
-              </p>
+              <p className="industry-subtitle">Key challenges we address:</p>
 
               <ul className="industry-list">
                 <li>Secure digital payment and transaction systems</li>
@@ -116,10 +79,143 @@ const Finance = () => {
               <p className="industry-footer-text">
                 Our finance solutions help organizations deliver reliable,
                 transparent, and high-performance financial services while
-                meeting regulatory requirements and customer expectations in a
-                fast-evolving digital economy.
+                meeting regulatory requirements and customer expectations.
               </p>
             </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ===============================
+          FINANCE SOLUTIONS – TABS
+      ================================ */}
+      <section className="services-content">
+        <div className="container">
+
+          {/* TABS */}
+          <div className="devops-tabs reveal">
+
+            <button
+              className={`industry-box ${activeTab === "payments" ? "active" : ""}`}
+              onClick={() => setActiveTab("payments")}
+            >
+              Digital Payments
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "banking" ? "active" : ""}`}
+              onClick={() => setActiveTab("banking")}
+            >
+              Banking Platforms
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "risk" ? "active" : ""}`}
+              onClick={() => setActiveTab("risk")}
+            >
+              Risk & Fraud Management
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "analytics" ? "active" : ""}`}
+              onClick={() => setActiveTab("analytics")}
+            >
+              Financial Analytics
+            </button>
+
+          </div>
+
+          {/* CONTENT CARD */}
+          <div className="service-card reveal devops-card">
+
+            {activeTab === "payments" && (
+              <>
+                <h2>Digital Payments</h2>
+                <p>
+                  We design and implement secure digital payment systems that
+                  support real-time transactions, multiple payment gateways,
+                  and seamless user experiences.
+                </p>
+                <ul>
+                  <li>UPI, card, and wallet-based payment integrations</li>
+                  <li>High-volume transaction processing</li>
+                  <li>Secure APIs and encrypted payment flows</li>
+                  <li>Compliance with PCI-DSS and financial regulations</li>
+                  <li>Fraud prevention and transaction monitoring</li>
+                </ul>
+                <p>
+                  Our payment solutions ensure fast, reliable, and secure
+                  transactions across digital channels.
+                </p>
+              </>
+            )}
+
+            {activeTab === "banking" && (
+              <>
+                <h2>Banking Platforms</h2>
+                <p>
+                  ABSN IT Solutions builds modern banking platforms that enable
+                  digital onboarding, core banking operations, and customer
+                  self-service.
+                </p>
+                <ul>
+                  <li>Core banking and digital account management</li>
+                  <li>Loan management and credit processing systems</li>
+                  <li>Customer portals and mobile banking apps</li>
+                  <li>Secure authentication and access control</li>
+                  <li>Scalable cloud-based banking architecture</li>
+                </ul>
+                <p>
+                  Our banking platforms improve customer experience while
+                  maintaining operational efficiency and security.
+                </p>
+              </>
+            )}
+
+            {activeTab === "risk" && (
+              <>
+                <h2>Risk & Fraud Management</h2>
+                <p>
+                  Managing risk is critical in financial systems. We develop
+                  intelligent risk and fraud detection solutions that protect
+                  organizations from financial threats.
+                </p>
+                <ul>
+                  <li>Real-time fraud detection and alerts</li>
+                  <li>Risk scoring and behavioral analysis</li>
+                  <li>Transaction monitoring systems</li>
+                  <li>Regulatory compliance and audit support</li>
+                  <li>AI-driven anomaly detection</li>
+                </ul>
+                <p>
+                  Our solutions help organizations minimize losses and maintain
+                  customer trust.
+                </p>
+              </>
+            )}
+
+            {activeTab === "analytics" && (
+              <>
+                <h2>Financial Analytics</h2>
+                <p>
+                  Data-driven insights are essential for financial decision-
+                  making. We deliver advanced analytics platforms that turn
+                  financial data into actionable intelligence.
+                </p>
+                <ul>
+                  <li>Real-time financial dashboards</li>
+                  <li>Transaction and revenue analytics</li>
+                  <li>Predictive financial modeling</li>
+                  <li>Regulatory and compliance reporting</li>
+                  <li>Custom reports for business insights</li>
+                </ul>
+                <p>
+                  Our analytics solutions empower financial leaders to make
+                  informed, strategic decisions with confidence.
+                </p>
+              </>
+            )}
 
           </div>
         </div>
@@ -128,29 +224,21 @@ const Finance = () => {
       {/* BACK TO TOP */}
       {showBackToTop && (
         <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="back-to-top-btn"
-          onClick={scrollToTop}
           style={{
             position: "fixed",
             bottom: "20px",
             right: "20px",
-            backgroundColor: "#1e40af",
+            background: "#1e40af",
             color: "#fff",
-            border: "none",
             borderRadius: "50%",
             width: "50px",
             height: "50px",
-            fontSize: "20px",
+            border: "none",
             cursor: "pointer",
-            boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
-            zIndex: 1000,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            transition: "all 0.3s ease",
+            fontSize: "20px",
           }}
-          onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")}
-          onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
         >
           ↑
         </button>

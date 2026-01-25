@@ -1,138 +1,149 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const IndustriesWeServe = () => {
   const navigate = useNavigate();
+  const [hoverTitle, setHoverTitle] = useState(null);
+
+  /* 🔹 Reveal on scroll */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          } else {
+            entry.target.classList.remove("active");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) =>
+      observer.observe(el)
+    );
+
+    return () => observer.disconnect();
+  }, []);
+
   const industries = [
     {
+      id: "healthcare",
       title: "Healthcare",
-      description: "we deliver secure and scalable digital solutions for the healthcare industry. Our platforms help hospitals, clinics, and healthcare startups streamline patient management, electronic health records, telemedicine, and data analytics. By leveraging modern technologies, we enhance operational efficiency, ensure data security, and improve patient care outcomes while meeting regulatory and compliance standards.",
-      bgImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTigiSIwWjnxjYPmmxDJwzO_gVS-14kH0jFPg&",
+      description:
+        "We deliver secure and scalable digital solutions for the healthcare industry. Our platforms help hospitals, clinics, and healthcare startups streamline patient management, electronic health records, telemedicine, and data analytics while ensuring compliance and data security.",
+      sideImage:
+        "https://thumbs.dreamstime.com/b/medical-coverage-insurance-concept-hands-doctor-covering-symbols-icons-blue-background-copy-space-web-banner-template-152592412.jpg",
+      bgImage:
+        "https://static.vecteezy.com/system/resources/thumbnails/070/211/753/small/medical-stethoscope-on-white-background-photo.jpeg",
       route: "/industries/healthcare",
     },
     {
+      id: "education",
       title: "Education",
-      description: "We empower educational institutions with smart digital solutions that transform learning and administration. Our education-focused services include learning management systems, student information platforms, online examination tools, and custom software for schools, colleges, and EdTech companies. AbsNIT Solutions enables seamless collaboration, improved engagement, and data-driven decision-making in today’s digital education ecosystem.",
-      bgImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtuh_xYWw9k0w6dDcXPemYHT27bEIf3PWCJQ&s",
+      description:
+        "We empower educational institutions with smart digital solutions including LMS platforms, student information systems, online examinations, and custom EdTech software.",
+      sideImage:
+        "https://img.freepik.com/free-photo/front-view-colored-pencils-kept-glass-jar-stacked-spiral-notebooks-right-side-blue-color_140725-138995.jpg?semt=ais_hybrid&w=740&q=80",
+      bgImage:
+        "https://thumbs.dreamstime.com/b/education-doodle-art-text-banner-middle-black-white-color-vector-illustration-130238518.jpg",
       route: "/industries/education",
     },
     {
+      id: "manufacturing",
       title: "Manufacturing",
-      description: "AbsNIT Solutions supports manufacturing businesses in their journey toward digital transformation. Our solutions optimize production processes, inventory management, supply chain operations, and quality control through automation and real-time insights. By integrating intelligent systems and analytics, we help manufacturers increase productivity, reduce downtime, and maintain operational excellence.",
-      bgImage: "https://thumbs.dreamstime.com/b/blue-cogs-gears-background-montage-connected-industrial-tone-31302616.jpg",
+      description:
+        "We support manufacturers with digital transformation solutions that optimize production, inventory, supply chain, and quality control through automation and analytics.",
+      sideImage:
+        "https://thumbs.dreamstime.com/b/blue-cogs-gears-background-montage-connected-industrial-tone-31302616.jpg",
+      bgImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm3bt-PB_PdAVZDr9iZdfEg8X6-EmH7a0uIg&s",
       route: "/industries/manufacturing",
     },
     {
+      id: "finance",
       title: "Finance",
-      description: "We provide reliable and secure technology solutions for the finance sector, including banks, fintech startups, and financial service providers. Our expertise covers digital payment systems, financial analytics, risk management tools, and secure data platforms. AbsNIT Solutions focuses on compliance, scalability, and performance to help financial organizations deliver trusted and efficient services.",
-      bgImage: "https://media.istockphoto.com/id/1409217098/vector/business-investment-forex-trading-chart-on-blue-dark-background-trading-stock-technology-and.jpg?s=612x612&w=0&k=20&c=VFUMzx9F_d-BME0o-4nOAF_D4SuzxFbfo6Ki0D_c7Pc=",
+      description:
+        "We build secure and scalable fintech, banking, and financial platforms including payment systems, analytics dashboards, and risk management tools.",
+      sideImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxojJ1KqqRnDLMbIJr833WLUPJfVF9-hz2dQ&s",
+      bgImage:
+        "https://st4.depositphotos.com/13324256/30228/i/450/depositphotos_302280866-stock-photo-cropped-view-woman-holding-letter.jpg",
       route: "/industries/finance",
     },
     {
+      id: "retail",
       title: "Retail",
       description:
-        "Our retail technology solutions help businesses enhance customer experience and drive growth across online and offline channels. From inventory and order management to customer analytics and omnichannel platforms, AbsNIT Solutions enables retailers to operate efficiently and respond quickly to market demands. We help brands leverage data and technology to improve engagement, sales, and loyalty.",
-      bgImage: "https://img.freepik.com/free-photo/black-friday-sales-sign-neon-light_23-2151833076.jpg?semt=ais_hybrid&w=740&q=80",
+        "Our retail technology solutions help brands enhance customer experience, streamline operations, and grow through omnichannel platforms and data-driven insights.",
+      sideImage:
+        "https://img.freepik.com/free-photo/black-friday-sales-sign-neon-light_23-2151833076.jpg",
+      bgImage:
+        "https://png.pngtree.com/background/20230527/original/pngtree-white-storefront-on-a-white-background-picture-image_2769758.jpg",
       route: "/industries/retail",
     },
   ];
 
-  const [hoverTitle, setHoverTitle] = useState(null); // for hover bg
-
   return (
-    <div className="page">
+    <div className="page services-page">
       {/* HERO */}
       <section className="page-hero">
         <div className="container">
-          <h1
-            className="page-title"
-            style={{ textAlign: "center", color: "#254A8A" }}
-          >
+          <h1 className="page-title" style={{ textAlign: "center", color: "#254A8A" }}>
             Industries We Serve
           </h1>
-          <p
-            className="page-subtitle"
-            style={{
-              fontSize: "22px",
-              lineHeight: "1.4",
-              textAlign: "center",
-            }}
-          >
+          <p className="page-subtitle" style={{ textAlign: "center", fontSize: "22px" }}>
             Solutions tailored to the needs of your industry
           </p>
         </div>
       </section>
 
-      {/* GRID */}
-      <section className="services-content ">
+      {/* INDUSTRIES */}
+      <section className="services-content">
         <div className="container">
-          <div className="inner-services-grid">
-            {industries.map((item) => {
-              const showBg = hoverTitle === item.title && item.bgImage;
+          {industries.map((item, index) => {
+            const isRight = index % 2 !== 0;
+            const showBg = hoverTitle === item.title;
 
-              return (
+            return (
+              <div
+                key={item.id}
+                className={`service-row ${isRight ? "right" : "left"}`}
+              >
+                {/* SIDE IMAGE */}
                 <div
-                  key={item.title}
-                  className={`service-card ${showBg ? "service-card-with-bg" : ""
-                    }`}
+                  className={`service-side-image reveal ${
+                    isRight ? "reveal-right" : "reveal-left"
+                  }`}
+                >
+                  <img src={item.sideImage} alt={item.title} />
+                </div>
+
+                {/* CARD */}
+                <div
+                  className={`service-card service-fixed reveal ${
+                    showBg ? "service-card-with-bg" : ""
+                  }`}
                   style={
                     showBg
                       ? {
-                        backgroundImage: `url(${item.bgImage})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }
+                          backgroundImage: `url(${item.bgImage})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }
                       : undefined
                   }
                   onMouseEnter={() => setHoverTitle(item.title)}
                   onMouseLeave={() => setHoverTitle(null)}
                   onClick={() => navigate(item.route)}
                 >
-                  {/* ICON */}
-                  <div className="service-icon">
-                    {item.image && (
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        style={{
-                          width: "90px",
-                          height: "90px",
-                          objectFit: "contain",
-                          position: "relative",
-                          zIndex: 2,
-                        }}
-                      />
-                    )}
-                  </div>
-
-                  {/* TITLE */}
-                 <h3
-                    style={{
-                      fontSize: "25px",
-                      fontWeight: "600",
-                      marginBottom: "10px",
-                      position: "relative",
-                      zIndex: 2,
-                      color: showBg ? "#f4f2f2ff" : "#171ca4ff",
-                    }}
-                  >
-                    {item.title}
-                  </h3>
-
-                  {/* DESCRIPTION */}
-                  <p
-                    style={{
-                      position: "relative",
-                      zIndex: 2,
-                      color: showBg ? "#e5e7eb" : "#374151",
-                    }}
-                  >
-                    {item.description}
-                  </p>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
       </section>
     </div>

@@ -53,26 +53,26 @@ const About = () => {
   };
 
   /* ============ SCROLL REVEAL ============ */
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          } else {
-            entry.target.classList.remove("active");
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        } else {
+          entry.target.classList.remove("active");
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
 
-    document.querySelectorAll(".reveal").forEach((el) =>
-      observer.observe(el)
-    );
+  document
+    .querySelectorAll(".reveal")
+    .forEach(el => observer.observe(el));
 
-    return () => observer.disconnect();
-  }, []);
+  return () => observer.disconnect();
+}, []);
 
   return (
     <div className="page">
@@ -100,6 +100,55 @@ const About = () => {
           </p>
         </div>
       </section>
+      <section className="about-hero-full">
+
+  {/* Background Image */}
+  <img
+    src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGV2ZWxvcGVyfGVufDB8fDB8fHww"
+    alt="About ABSN IT Solutions"
+    className="about-hero-bg"
+  />
+
+  {/* Overlay */}
+  <div className="about-hero-overlay"></div>
+
+  {/* RIGHT CONTENT */}
+  <div className="about-hero-content right reveal">
+
+    <span className="about-line delay-1">ABOUT ABSN IT SOLUTIONS</span>
+
+    <h1 className="about-line delay-2">
+      Proof, Not Promises
+    </h1>
+
+    <p className="about-line delay-3">
+      We help organizations design, build, and scale secure digital solutions
+      with innovation and long-term vision.
+    </p>
+
+    <p className="about-line delay-4">
+      Our approach combines technical excellence, human-centered design,
+      and enterprise-grade delivery.
+    </p>
+
+    <div className="about-hero-stats about-line delay-5">
+      <div>
+        <h3>10+</h3>
+        <span>Years</span>
+      </div>
+      <div>
+        <h3>100+</h3>
+        <span>Experts</span>
+      </div>
+      <div>
+        <h3>500+</h3>
+        <span>Projects</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
       {/* ================= ABOUT CARDS ================= */}
       <section className="about-content">
@@ -124,10 +173,26 @@ const About = () => {
                 Our Story of Innovation and Digital Growth
               </h2>
               <p>
-                ABSNIT Solutions was founded with a simple belief: technology should solve real problems
-                and create real value. What began as a small idea driven by innovation and curiosity has
-                grown into a solutions-focused team delivering reliable, scalable, and modern digital services.
-              </p>
+  What began as a vision to empower businesses through innovative technology
+  has grown into <strong>ABSN IT Solutions</strong>—a company driven by purpose,
+  passion, and performance. United by a shared commitment to building impactful
+  digital solutions, we set out to create technology that truly makes a difference
+  in today’s evolving digital landscape.
+</p>
+
+<p>
+  Rather than following conventional paths, we chose to build something meaningful—
+  focused on quality, innovation, and long-term value. ABSN IT Solutions was founded
+  with a clear mission: to deliver reliable, scalable, and future-ready software
+  solutions while upholding the highest standards of excellence.
+</p>
+
+<p>
+  Today, ABSN IT Solutions stands as a growing technology partner that blends
+  technical expertise with human-centered design—always guided by the values that
+  shaped our journey from the start.
+</p>
+
             </motion.div>
 
             {/* OUR VALUES */}
@@ -142,10 +207,21 @@ const About = () => {
               <h2 className="about-card-title">
                 Our Core Values Driving Business Excellence
               </h2>
-              <p>➤ <strong>Integrity:</strong> Honesty and transparency</p>
-              <p>➤ <strong>Innovation:</strong> Embracing new ideas</p>
-              <p>➤ <strong>Excellence:</strong> Quality in every project</p>
-              <p>➤ <strong>Collaboration:</strong> Strong partnerships</p>
+             <p>
+  It should empower users, protect data, and create positive, lasting impact.
+</p>
+
+<p>
+  Our mission is to achieve business goals through innovative digital solutions.
+</p>
+
+<ul className="mission-values">
+  <li><strong> ➤  Integrity:</strong> Honesty and transparency</li>
+  <li><strong> ➤  Innovation:</strong> Embracing new ideas</li>
+  <li><strong> ➤  Excellence:</strong> Quality in every project</li>
+  <li><strong> ➤  Collaboration:</strong> Strong partnerships</li>
+</ul>
+
             </motion.div>
 
             {/* OUR MISSION */}
@@ -161,9 +237,17 @@ const About = () => {
                 Our Mission to Deliver Scalable IT Solutions
               </h2>
               <p>
-                To deliver innovative and reliable IT solutions that empower businesses to
-                achieve their full potential.
-              </p>
+               At ABSN IT Solutions, we believe that great technology should do more than solve problems—it should empower users, protect data, and create positive, lasting impact. Our mission is to:
+</p>
+
+<ul className="mission-values">
+<li> ➤ Design, integrate, and scale digital solutions that transform businesses</li>
+
+<li> ➤ Deliver exceptional technology services with integrity and innovation</li>
+
+  <li> ➤ Build sustainable solutions that support long-term growth and success</li>
+</ul>
+             
             </motion.div>
 
             {/* OUR MISSION TO YOU */}
@@ -180,9 +264,12 @@ const About = () => {
                 We’re committed to being your trusted technology partner, helping you
                 achieve business goals through innovative digital solutions.
               </p>
-              <p>➤ Tailored solutions for your challenges</p>
-              <p>➤ Expert guidance throughout transformation</p>
-              <p>➤ Scalable technologies that grow with you</p>
+              <ul className="mission-values">
+              <li>➤  Tailored solutions for your challenges</li>
+              <li>➤  Expert guidance throughout transformation</li>
+              <li>➤  Scalable technologies that grow with you</li>
+              </ul>
+              <p>At ABSN IT Solutions, we’re here to help you navigate the complexities of modern technology and unlock your organization’s full potential.</p>
             </motion.div>
 
           </div>
@@ -230,8 +317,13 @@ const About = () => {
               </div>
             ))}
           </div>
+          
+
+          
         </div>
+        
       </section>
+      
     </div>
   );
 };

@@ -32,6 +32,24 @@ const Contact = () => {
                 </div>
             </section>
 
+<section
+  className="contact-hero-banner"
+  style={{
+    backgroundImage:
+      'url("https://www.shutterstock.com/image-vector/contact-us-background-eps-vector-600nw-2491405611.jpg")',
+  }}
+>
+  <div className="contact-hero-overlay">
+    <div className="contact-hero-text">
+      <h1>GET IN TOUCH</h1>
+      <p>
+        We’d love to hear from you. Let’s build something great together.
+      </p>
+    </div>
+  </div>
+</section>
+
+
             <section className="contact-content">
                 <div className="container">
                     <div className="contact-wrapper">
@@ -44,7 +62,7 @@ const Contact = () => {
                             </p>
 
                             <div className="contact-details">
-                                <div className="contact-item">
+                                <div className="contact-item ">
                                     <strong>Email:</strong>
                                    <p><a href="mailto:info@absnit.com">info@absnit.com</a></p>
                                 </div>
@@ -101,6 +119,7 @@ const Contact = () => {
                     </div>
                 </div>
             </section>
+            
         </div>
     );
 };

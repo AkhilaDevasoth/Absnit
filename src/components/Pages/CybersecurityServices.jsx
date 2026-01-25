@@ -2,18 +2,15 @@ import React, { useState, useEffect } from "react";
 
 const CybersecurityServices = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [activeTab, setActiveTab] = useState("risk");
 
-  // 🔹 Reveal animation (scroll up & down)
+  /* 🔹 Reveal animation */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          } else {
-            entry.target.classList.remove("active");
-          }
-        });
+        entries.forEach((entry) =>
+          entry.target.classList.toggle("active", entry.isIntersecting)
+        );
       },
       { threshold: 0.15 }
     );
@@ -25,23 +22,18 @@ const CybersecurityServices = () => {
     return () => observer.disconnect();
   }, []);
 
-  // 🔹 Back to top button
+  /* 🔹 Back to top */
   useEffect(() => {
-    const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 300);
-    };
-
+    const handleScroll = () => setShowBackToTop(window.scrollY > 300);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTop = () => {
+  const scrollToTop = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <div className="page">
-      {/* Fix reveal */}
       <style>
         {`
           .reveal.active {
@@ -54,55 +46,37 @@ const CybersecurityServices = () => {
       {/* HERO */}
       <section className="page-hero">
         <div className="container">
-          <h1
-            className="page-title reveal"
-            style={{ textAlign: "center", color: "#1e40af" }}
-          >
+          <h1 className="page-title reveal" style={{ textAlign: "center", color: "#1e40af" }}>
             Cybersecurity Services
           </h1>
-
-          <p
-            className="page-subtitle reveal"
-            style={{
-              fontSize: "22px",
-              lineHeight: "1.4",
-              textAlign: "center",
-            }}
-          >
+          <p className="page-subtitle reveal" style={{ fontSize: "22px", textAlign: "center" }}>
             Security-first engineering and best practices
           </p>
         </div>
       </section>
 
-      {/* CONTENT */}
+      {/* MAIN CONTENT (UNCHANGED) */}
       <section className="services-content">
         <div className="container">
           <div className="industry-detail-layout">
 
-            {/* LEFT IMAGE */}
-            <div className="industry-image-card reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
+            <div className="industry-image-card reveal">
               <img
                 src="https://bluelightllc.com/wp-content/uploads/AdobeStock_190347521-scaled-1-1080x675.jpeg"
                 alt="Cybersecurity Services"
               />
             </div>
 
-            {/* RIGHT CONTENT */}
-            <div className="industry-text-content reveal opacity-0 translate-y-4 transition-all duration-700 ease-out">
-              <h2 className="industry-title">
-                Cybersecurity Solutions & Protection
-              </h2>
+            <div className="industry-text-content reveal">
+              <h2 className="industry-title">Cybersecurity Solutions & Protection</h2>
 
               <p className="industry-description">
                 ABSN IT Solutions delivers comprehensive cybersecurity services
                 designed to protect digital assets, infrastructure, and sensitive
-                data from evolving cyber threats. Our security-first approach
-                ensures resilience, compliance, and trust.
+                data from evolving cyber threats.
               </p>
 
-              <p className="industry-subtitle">
-                Key challenges we address:
-              </p>
+              <p className="industry-subtitle">Key challenges we address:</p>
 
               <ul className="industry-list">
                 <li>Identifying and mitigating security vulnerabilities</li>
@@ -116,7 +90,7 @@ const CybersecurityServices = () => {
               <p className="industry-footer-text">
                 Our cybersecurity expertise covers risk assessment, penetration
                 testing, security audits, access control, and continuous
-                monitoring to safeguard your business in a digital-first world.
+                monitoring.
               </p>
             </div>
 
@@ -124,33 +98,137 @@ const CybersecurityServices = () => {
         </div>
       </section>
 
+      {/* ===============================
+          CYBERSECURITY – TAB SECTION
+      ================================ */}
+      <section className="services-content">
+        <div className="container">
+
+          {/* TABS */}
+          <div className="devops-tabs reveal">
+            <button
+              className={`industry-box ${activeTab === "risk" ? "active" : ""}`}
+              onClick={() => setActiveTab("risk")}
+            >
+              Risk Assessment
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "network" ? "active" : ""}`}
+              onClick={() => setActiveTab("network")}
+            >
+              Network Security
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "cloud" ? "active" : ""}`}
+              onClick={() => setActiveTab("cloud")}
+            >
+              Cloud Security
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "incident" ? "active" : ""}`}
+              onClick={() => setActiveTab("incident")}
+            >
+              Incident Response
+            </button>
+          </div>
+
+          {/* CONTENT CARD */}
+          <div className="service-card reveal devops-card">
+
+            {activeTab === "risk" && (
+              <>
+                <h2>Security Risk Assessment</h2>
+                <p>
+                  We identify vulnerabilities across applications,
+                  infrastructure, and networks to understand potential risks.
+                </p>
+                <ul>
+                  <li>Comprehensive security audits</li>
+                  <li>Vulnerability scanning and analysis</li>
+                  <li>Threat modeling and risk classification</li>
+                  <li>Compliance gap assessment</li>
+                  <li>Actionable remediation recommendations</li>
+                </ul>
+                <p>
+                  Our assessments help organizations prioritize security
+                  investments and reduce exposure to threats.
+                </p>
+              </>
+            )}
+
+            {activeTab === "network" && (
+              <>
+                <h2>Network Security</h2>
+                <p>
+                  Protecting enterprise networks from unauthorized access and
+                  attacks is critical for business continuity.
+                </p>
+                <ul>
+                  <li>Firewall and intrusion detection systems</li>
+                  <li>Secure network architecture design</li>
+                  <li>Access control and segmentation</li>
+                  <li>Monitoring and traffic analysis</li>
+                  <li>Protection against DDoS attacks</li>
+                </ul>
+                <p>
+                  Our network security solutions ensure reliable and protected
+                  communication across systems.
+                </p>
+              </>
+            )}
+
+            {activeTab === "cloud" && (
+              <>
+                <h2>Cloud Security</h2>
+                <p>
+                  Cloud environments require specialized security strategies to
+                  protect data and workloads.
+                </p>
+                <ul>
+                  <li>Secure cloud architecture and identity management</li>
+                  <li>Data encryption and key management</li>
+                  <li>Compliance and governance controls</li>
+                  <li>Continuous cloud security monitoring</li>
+                  <li>Protection across multi-cloud environments</li>
+                </ul>
+                <p>
+                  We help organizations secure cloud platforms while maintaining
+                  agility and scalability.
+                </p>
+              </>
+            )}
+
+            {activeTab === "incident" && (
+              <>
+                <h2>Incident Response & Monitoring</h2>
+                <p>
+                  Rapid response to security incidents minimizes damage and
+                  downtime.
+                </p>
+                <ul>
+                  <li>Real-time threat monitoring</li>
+                  <li>Incident detection and containment</li>
+                  <li>Forensic analysis and root cause investigation</li>
+                  <li>Recovery and remediation planning</li>
+                  <li>Continuous security improvement</li>
+                </ul>
+                <p>
+                  Our incident response services ensure faster recovery and
+                  stronger future defenses.
+                </p>
+              </>
+            )}
+
+          </div>
+        </div>
+      </section>
+
       {/* BACK TO TOP */}
       {showBackToTop && (
-        <button
-          className="back-to-top-btn"
-          onClick={scrollToTop}
-          style={{
-            position: "fixed",
-            bottom: "20px",
-            right: "20px",
-            backgroundColor: "#1e40af",
-            color: "white",
-            border: "none",
-            borderRadius: "50%",
-            width: "50px",
-            height: "50px",
-            fontSize: "20px",
-            cursor: "pointer",
-            boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
-            zIndex: 1000,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            transition: "all 0.3s ease",
-          }}
-          onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")}
-          onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
-        >
+        <button className="back-to-top-btn" onClick={scrollToTop}>
           ↑
         </button>
       )}

@@ -9,20 +9,29 @@ const Header = () => {
 
   return (
     <header className="site-header">
-  <div className="header-container">
-    {/* LOGO – LEFT */}
+ {/* LEFT WRAPPER – adds space & keeps logo left */}
+  <div style={{ display: "flex", alignItems: "center", paddingLeft: "100px" }}>
     <Link to="/" className="logo">
       <img src="/logo.png" alt="ABSN IT Solutions" />
     </Link>
-        {/* NAV */}
-        <nav className="nav">
-          <Link to="/" className={`nav-link ${isActive("/") ? "active" : ""}`}>
-            Home
-          </Link>
+  </div>
 
-          <Link to="/about" className={`nav-link ${isActive("/about") ? "active" : ""}`}>
-            About
-          </Link>
+  {/* RIGHT WRAPPER – pushes nav to right */}
+  <div style={{ marginLeft: "auto", paddingRight: "550px" }}>
+    <nav className="nav">
+      <Link
+        to="/"
+        className={`nav-link ${isActive("/") ? "active" : ""}`}
+      >
+        Home
+      </Link>
+
+      <Link
+        to="/about"
+        className={`nav-link ${isActive("/about") ? "active" : ""}`}
+      >
+        About
+      </Link>
 
           {/* SERVICES */}
           <div

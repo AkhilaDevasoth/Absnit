@@ -2,18 +2,15 @@ import React, { useState, useEffect } from "react";
 
 const CloudPlatforms = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [activeTab, setActiveTab] = useState("aws");
 
-  /* 🔹 Reveal animation (UP & DOWN) */
+  /* 🔹 Reveal animation */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          } else {
-            entry.target.classList.remove("active");
-          }
-        });
+        entries.forEach((entry) =>
+          entry.target.classList.toggle("active", entry.isIntersecting)
+        );
       },
       { threshold: 0.15 }
     );
@@ -27,21 +24,16 @@ const CloudPlatforms = () => {
 
   /* 🔹 Back to top */
   useEffect(() => {
-    const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 300);
-    };
-
+    const handleScroll = () => setShowBackToTop(window.scrollY > 300);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTop = () => {
+  const scrollToTop = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <div className="page">
-      {/* Force reveal animation */}
       <style>
         {`
           .reveal.active {
@@ -54,32 +46,20 @@ const CloudPlatforms = () => {
       {/* HERO */}
       <section className="page-hero">
         <div className="container">
-          <h1
-            className="page-title reveal"
-            style={{ textAlign: "center", color: "#1e40af" }}
-          >
+          <h1 className="page-title reveal" style={{ textAlign: "center", color: "#1e40af" }}>
             Cloud Platforms
           </h1>
-
-          <p
-            className="page-subtitle reveal"
-            style={{
-              fontSize: "22px",
-              lineHeight: "1.4",
-              textAlign: "center",
-            }}
-          >
+          <p className="page-subtitle reveal" style={{ fontSize: "22px", textAlign: "center" }}>
             Scalable cloud infrastructure for modern applications
           </p>
         </div>
       </section>
 
-      {/* CONTENT */}
+      {/* MAIN CONTENT (UNCHANGED) */}
       <section className="services-content">
         <div className="container">
           <div className="industry-detail-layout">
 
-            {/* LEFT IMAGE */}
             <div className="industry-image-card reveal">
               <img
                 src="https://www.shutterstock.com/image-vector/abstract-cloud-technology-circuit-board-600nw-2669250763.jpg"
@@ -87,7 +67,6 @@ const CloudPlatforms = () => {
               />
             </div>
 
-            {/* RIGHT CONTENT */}
             <div className="industry-text-content reveal">
               <h2 className="industry-title">
                 Cloud Infrastructure & Platforms
@@ -124,35 +103,141 @@ const CloudPlatforms = () => {
         </div>
       </section>
 
+      {/* ===============================
+          CLOUD PLATFORMS – TAB SECTION
+      ================================ */}
+      <section className="services-content">
+        <div className="container">
+
+          {/* TABS */}
+          <div className="devops-tabs reveal">
+            <button
+              className={`industry-box ${activeTab === "aws" ? "active" : ""}`}
+              onClick={() => setActiveTab("aws")}
+            >
+              AWS
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "azure" ? "active" : ""}`}
+              onClick={() => setActiveTab("azure")}
+            >
+              Microsoft Azure
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "gcp" ? "active" : ""}`}
+              onClick={() => setActiveTab("gcp")}
+            >
+              Google Cloud
+            </button>
+
+            <button
+              className={`industry-box ${activeTab === "hybrid" ? "active" : ""}`}
+              onClick={() => setActiveTab("hybrid")}
+            >
+              Hybrid & Multi-Cloud
+            </button>
+          </div>
+
+          {/* CONTENT CARD */}
+          <div className="service-card reveal devops-card">
+
+            {activeTab === "aws" && (
+              <>
+                <h2>Amazon Web Services (AWS)</h2>
+                <p>
+                  AWS provides a highly scalable and reliable cloud platform for
+                  modern applications. ABSN IT Solutions helps organizations
+                  design, deploy, and manage secure AWS environments.
+                </p>
+                <ul>
+                  <li>Compute, storage, and networking on AWS</li>
+                  <li>Auto-scaling and high availability architecture</li>
+                  <li>Serverless and container-based deployments</li>
+                  <li>AWS security best practices and IAM</li>
+                  <li>Cost optimization and performance tuning</li>
+                </ul>
+                <p>
+                  Our AWS expertise enables businesses to build resilient,
+                  scalable, and cost-efficient cloud solutions.
+                </p>
+              </>
+            )}
+
+            {activeTab === "azure" && (
+              <>
+                <h2>Microsoft Azure</h2>
+                <p>
+                  Microsoft Azure offers enterprise-grade cloud capabilities
+                  with strong integration into Microsoft ecosystems. We help
+                  organizations leverage Azure for digital transformation.
+                </p>
+                <ul>
+                  <li>Enterprise cloud and hybrid deployments</li>
+                  <li>Azure DevOps and CI/CD automation</li>
+                  <li>Identity management with Azure Active Directory</li>
+                  <li>Secure data and application hosting</li>
+                  <li>Compliance-ready cloud infrastructure</li>
+                </ul>
+                <p>
+                  Our Azure solutions support enterprise scalability, security,
+                  and seamless integration with business systems.
+                </p>
+              </>
+            )}
+
+            {activeTab === "gcp" && (
+              <>
+                <h2>Google Cloud Platform (GCP)</h2>
+                <p>
+                  Google Cloud Platform is ideal for data-driven and AI-powered
+                  workloads. ABSN IT Solutions enables organizations to leverage
+                  GCP for innovation and performance.
+                </p>
+                <ul>
+                  <li>Big data and analytics platforms</li>
+                  <li>AI/ML and cloud-native workloads</li>
+                  <li>Kubernetes and container orchestration</li>
+                  <li>High-performance cloud networking</li>
+                  <li>Scalable data storage solutions</li>
+                </ul>
+                <p>
+                  Our GCP expertise helps businesses unlock insights and build
+                  intelligent, scalable applications.
+                </p>
+              </>
+            )}
+
+            {activeTab === "hybrid" && (
+              <>
+                <h2>Hybrid & Multi-Cloud Solutions</h2>
+                <p>
+                  Hybrid and multi-cloud strategies offer flexibility and
+                  resilience. We design architectures that combine multiple
+                  cloud platforms and on-premise systems seamlessly.
+                </p>
+                <ul>
+                  <li>Hybrid cloud architecture design</li>
+                  <li>Multi-cloud workload distribution</li>
+                  <li>Unified monitoring and management</li>
+                  <li>Disaster recovery across cloud providers</li>
+                  <li>Vendor lock-in avoidance strategies</li>
+                </ul>
+                <p>
+                  Our hybrid and multi-cloud solutions ensure scalability,
+                  reliability, and business continuity.
+                </p>
+              </>
+            )}
+
+          </div>
+        </div>
+      </section>
+
       {/* BACK TO TOP */}
       {showBackToTop && (
-        <button
-          className="back-to-top-btn"
-          onClick={scrollToTop}
-          style={{
-            position: "fixed",
-            bottom: "20px",
-            right: "20px",
-            backgroundColor: "#1e40af",
-            color: "#fff",
-            border: "none",
-            borderRadius: "50%",
-            width: "50px",
-            height: "50px",
-            fontSize: "20px",
-            cursor: "pointer",
-            boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
-            zIndex: 1000,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            transition: "all 0.3s ease",
-          }}
-          onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")}
-          onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
-        >
-          ↑
-        </button>
+        <button className="back-to-top-btn" onClick={scrollToTop}>↑</button>
       )}
     </div>
   );
