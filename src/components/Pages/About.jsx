@@ -100,22 +100,24 @@ useEffect(() => {
           </p>
         </div>
       </section>
-      <section className="about-hero-full">
+    <section className="about-hero-full">
 
   {/* Background Image */}
   <img
-    src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGV2ZWxvcGVyfGVufDB8fDB8fHww"
+    src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?fm=jpg&q=60&w=3000&auto=format&fit=crop"
     alt="About ABSN IT Solutions"
-    className="about-hero-bg"
+    className="about-hero-bg reveal hero-bg"
   />
 
   {/* Overlay */}
-  <div className="about-hero-overlay"></div>
+  <div className="about-hero-overlay reveal"></div>
 
   {/* RIGHT CONTENT */}
-  <div className="about-hero-content right reveal">
+  <div className="about-hero-content right reveal hero-content">
 
-    <span className="about-line delay-1">ABOUT ABSN IT SOLUTIONS</span>
+    <span className="about-line delay-1">
+      ABOUT ABSN IT SOLUTIONS
+    </span>
 
     <h1 className="about-line delay-2">
       Proof, Not Promises
@@ -132,23 +134,22 @@ useEffect(() => {
     </p>
 
     <div className="about-hero-stats about-line delay-5">
-      <div>
-        <h3>10+</h3>
-        <span>Years</span>
-      </div>
-      <div>
-        <h3>100+</h3>
-        <span>Experts</span>
-      </div>
-      <div>
-        <h3>500+</h3>
-        <span>Projects</span>
-      </div>
-    </div>
+  <div>
+    <h3>10+</h3>
+    <span>Years</span>
+  </div>
+  <div>
+    <h3>100+</h3>
+    <span>Experts</span>
+  </div>
+  <div>
+    <h3>500+</h3>
+    <span>Projects</span>
+  </div>
+</div>
 
   </div>
 </section>
-
 
       {/* ================= ABOUT CARDS ================= */}
       <section className="about-content">
