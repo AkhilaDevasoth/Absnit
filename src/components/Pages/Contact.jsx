@@ -177,7 +177,7 @@ const Contact = () => {
       {/* OUR LOCATION */}
       <section className="contact-location-section reveal">
         <div className="container">
-          <h2 className="location-heading reveal">Our Location</h2>
+          <h2 className="location-heading reveal">Headquarters Location</h2>
 
           <div className="location-card reveal">
             <div className="location-left">

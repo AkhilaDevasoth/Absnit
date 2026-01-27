@@ -78,43 +78,52 @@ nav {
 .nav-link:hover {
   color: #111827;
 }
-/*#6f7b88;*/
+
+
+/* ===============================
+   FOOTER – PDSA STYLE
+================================ */
 
 .site-footer {
-  background: linear-gradient(180deg, #111319,#3D77B0);
-  color: #6f7b88;
-  padding: 60px 0 20px;
-  font-size: 1.0rem;
+  background: linear-gradient(180deg, #0b1535 0%, #1e3a8a 100%);
+  color: #cbd5e1;
+  padding: 70px 0 25px;
+  font-size: 15px;
 }
 
+/* MAIN GRID */
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
 
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
   gap: 3rem;
 }
 
+/* LOGO */
 .footer-logo img {
-  width: 140px;
-  margin-bottom: 1rem;
+  width: 160px;
+  margin-bottom: 1.25rem;
 }
 
+/* DESCRIPTION */
 .footer-desc {
-  max-width: 320px;
+  max-width: 360px;
   line-height: 1.7;
   color: #cbd5f5;
 }
 
-/* Columns */
+/* COLUMN HEADINGS */
 .footer-col h4 {
-  color: #a9dcf2;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
 }
 
+/* LINKS */
 .footer-col ul {
   list-style: none;
   padding: 0;
@@ -122,22 +131,27 @@ nav {
 }
 
 .footer-col li {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.65rem;
 }
 
 .footer-col a {
   color: #cbd5e1;
   text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .footer-col a:hover {
   color: #38bdf8;
+  transform: translateX(4px);
 }
 
-/* Addresses */
+/* ===============================
+   ADDRESS SECTION
+================================ */
+
 .footer-addresses {
   max-width: 1200px;
-  margin: 3rem auto 1.5rem;
+  margin: 3.5rem auto 2rem;
   padding: 0 1.5rem;
 
   display: grid;
@@ -146,33 +160,52 @@ nav {
 }
 
 .address h5 {
-  color: #facc15;
-  margin-bottom: 0.5rem;
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #facc15; /* yellow heading like screenshot */
 }
 
 .address p {
-  margin: 0.3rem 0;
+  margin: 0.4rem 0;
   color: #cbd5e1;
+  line-height: 1.6;
 }
 
-/* Bottom */
+.address a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.address a:hover {
+  color: #38bdf8;
+}
+
+/* ===============================
+   FOOTER BOTTOM
+================================ */
+
 .footer-bottom {
   text-align: center;
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   color: #94a3b8;
+  font-size: 14px;
 }
 
-/* RESPONSIVE FOOTER */
+/* ===============================
+   RESPONSIVE
+================================ */
+
 @media (max-width: 1024px) {
   .footer-container {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 640px) {
-  .footer-container {
+@media (max-width: 768px) {
+  .footer-container,
+  .footer-addresses {
     grid-template-columns: 1fr;
     text-align: center;
   }
@@ -180,11 +213,11 @@ nav {
   .footer-desc {
     margin: 0 auto;
   }
-
-  .footer-addresses {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+}
+.footer-col li::before {
+  content: "›";
+  margin-right: 8px;
+  color: #38bdf8;
 }
 
 
@@ -1197,7 +1230,7 @@ nav {
 
 .contact-form {
   background: #fff;
-  border: 1px solid #254A8A;
+  border: 1px solid #022766;
   border-radius: 16px;
   padding: 1.5rem;
 }
@@ -3232,5 +3265,522 @@ nav {
 
   .services-overview-title {
     font-size: 28px;
+  }
+}
+/* =====================================
+   FINAL RESPONSIVE OVERRIDES (GLOBAL)
+   ===================================== */
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Images always scale */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --------------------
+   TABLETS (≤1024px)
+--------------------- */
+@media (max-width: 1024px) {
+
+  /* Containers */
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  /* HERO */
+  .hero,
+  .about-hero-full {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+
+  .hero-content,
+  .hero-content-left {
+    margin-left: 0 !important;
+    max-width: 100%;
+  }
+
+  /* GRIDS → 2 COL */
+  .features-grid,
+  .services-grid,
+  .home-services-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* FLEX ROWS STACK */
+  .service-row,
+  .service-row.reverse,
+  .service-row.right {
+    flex-direction: column !important;
+    gap: 2rem;
+  }
+
+  .service-fixed {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .service-side-image {
+    width: 100%;
+  }
+}
+
+/* --------------------
+   MOBILE (≤768px)
+--------------------- */
+@media (max-width: 768px) {
+
+  /* HERO TEXT */
+  .hero-content,
+  .hero-content-left {
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem !important;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ALL GRIDS → 1 COL */
+  .features-grid,
+  .services-grid,
+  .home-services-grid,
+  .values-grid,
+  .faq-grid,
+  .footer-container,
+  .footer-addresses,
+  .industry-detail-layout,
+  .contact-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ABOUT STATS */
+  .about-stats,
+  .home-why-stats,
+  .about-hero-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  /* FLOATING PILLS → INLINE */
+  .pill {
+    position: static !important;
+    display: inline-block;
+    margin: 6px;
+  }
+
+  /* CONTACT HERO */
+  .contact-hero-overlay {
+    justify-content: center;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .contact-hero-text h1 {
+    font-size: 34px;
+    white-space: normal;
+  }
+}
+
+/* --------------------
+   SMALL PHONES (≤480px)
+--------------------- */
+@media (max-width: 480px) {
+
+  .hero-title {
+    font-size: 1.8rem !important;
+  }
+
+  .section-title,
+  .home-why-heading {
+    font-size: 1.7rem;
+  }
+
+  .services-overview-title {
+    font-size: 26px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+/* ===============================
+   E-VERIFIED COMPANY BADGE
+================================ */
+
+.everified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 1.2rem;
+  padding: 8px 14px;
+
+  background: #22c55e;          /* green like reference */
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
+}
+
+/* ===============================
+   RECTANGLES
+================================ */
+
+.rectangle {
+  width: 140px;
+  height: 42px;
+  border-radius: 6px;
+}
+
+/* ===============================
+   TRIANGLES (OUTLINE STYLE)
+================================ */
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 70px solid rgba(255, 255, 255, 0.35);
+  background: none;
+  animation: floatTriangle 10s ease-in-out infinite;
+}
+
+/* ===============================
+   POSITIONS
+================================ */
+
+/* Rectangles */
+.r1 { top: 42%; left: 6%; animation-delay: 1.5s; }
+.r2 { bottom: 32%; right: 18%; animation-delay: 3.5s; }
+
+/* Triangles */
+.t1 { top: 18%; right: 45%; animation-delay: 2.5s; }
+.t2 { bottom: 10%; left: 28%; animation-delay: 4.5s; }
+
+/* ===============================
+   TRIANGLE ANIMATION
+================================ */
+
+@keyframes floatTriangle {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-18px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===============================
+   AI FOOTER BACKGROUND
+================================ */
+
+.site-footer {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container */
+.footer-bg-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===============================
+   NEURAL NODES (PULSING DOTS)
+================================ */
+
+.ai-node {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 25px rgba(56,189,248,0.9);
+  animation: pulseNode 3s ease-in-out infinite;
+}
+
+.n1 { top: 20%; left: 15%; animation-delay: 0s; }
+.n2 { top: 50%; left: 30%; animation-delay: 1s; }
+.n3 { top: 35%; right: 18%; animation-delay: 2s; }
+
+/* ===============================
+   DATA ORBITS (AI CIRCLES)
+================================ */
+
+.ai-orbit {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 1px dashed rgba(56,189,248,0.5);
+  animation: rotateOrbit 18s linear infinite;
+}
+
+.o1 { top: 18%; right: 30%; }
+.o2 { bottom: 20%; left: 40%; animation-direction: reverse; }
+
+/* ===============================
+   LOGIC BLOCKS (ROTATING SQUARES)
+================================ */
+
+.ai-block {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(56,189,248,0.35),
+    rgba(167,139,250,0.35)
+  );
+  animation: logicFloat 14s ease-in-out infinite;
+}
+
+.b1 { top: 28%; left: 8%; animation-delay: 0s; }
+.b2 { bottom: 24%; right: 12%; animation-delay: 3s; }
+
+/* ===============================
+   ANIMATIONS
+================================ */
+
+@keyframes pulseNode {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.6); opacity: 0.6; }
+}
+
+@keyframes rotateOrbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes logicFloat {
+  0%   { transform: translateY(0) rotate(0deg); }
+  50%  { transform: translateY(-22px) rotate(20deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+
+/* ===============================
+   FOOTER – OUR LOCATIONS
+================================ */
+
+.footer-locations-section {
+  max-width: 1200px;
+  margin: 3rem auto 2rem;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2; /* above AI shapes */
+}
+
+.locations-title {
+  font-size: 29px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.locations-title::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  width: 4px;
+  height: 30px;
+  background: #f97316;
+  transform: translateY(-50%);
+}
+
+/* Grid */
+.locations-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Card */
+.location-box {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* Info */
+.location-info h4 {
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.location-info p {
+  margin: 6px 0;
+  color: #e5e7eb;
+  font-size: 15px;
+}
+
+/* Map */
+.location-map iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  border: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .locations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .location-box {
+    grid-template-columns: 1fr;
+  }
+
+  .location-map iframe {
+    height: 220px;
+  }
+}
+
+/* Disable AI shapes behind location cards only */
+.our-locations {
+  position: relative;
+  z-index: 5;
+}
+
+.our-locations .footer-bg-shapes {
+  display: none !important;
+}
+/* Prevent horizontal scroll everywhere */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+/* Footer columns */
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    margin: 0 auto;
+  }
+
+  .footer-desc {
+    margin: 0 auto;
+  }
+}
+/* Desktop */
+.locations-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .locations-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Location card layout */
+.location-box {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .location-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .location-map iframe {
+    height: 220px;
+  }
+}
+.footer-addresses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-addresses {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+/* Reduce clutter on tablets */
+@media (max-width: 1024px) {
+  .footer-bg-shapes span {
+    opacity: 0.08;
+    transform: scale(0.8);
+  }
+}
+
+/* Hide AI shapes on small phones */
+@media (max-width: 600px) {
+  .footer-bg-shapes {
+    display: none;
+  }
+}
+iframe {
+  max-width: 100%;
+  border-radius: 12px;
+}
+@media (max-width: 768px) {
+  h3, h4 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.6;
   }
 }
