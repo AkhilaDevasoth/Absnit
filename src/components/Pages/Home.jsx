@@ -25,9 +25,6 @@ const Home = () => {
   return () => observer.disconnect();
 }, []);
 
-
-
-
   return (
     <div className="page home-page">
 
@@ -47,22 +44,23 @@ const Home = () => {
 
         </video>
 
-        <div className="hero-overlay"></div>
+        <div className="hero-overlay "></div>
 
         <div className="hero-content hero-content-left">
 
-          <div className="hero-badge">
+          <div className="hero-badge reveal">
             <span className="hero-badge-dot" aria-hidden="true"></span>
             <span className="hero-badge-text">Introducing ABSN IT Solutions</span>
           </div>
-
-          <h1 className="hero-title reveal gradient-text">
-            Empowering Your Business with
-            Innovative IT Solution
+          <h1 className="reveal" style={{ color: "#4d68e2", fontSize: "45px", fontWeight: "bold", zIndex: 9999 }}>
+            Empowering Your Business with Innovative IT Solution
           </h1>
-          <p className="hero-subtitle reveal">
+
+          <p className="reveal" style={{ color: "#8796da", fontSize: "18px", zIndex: 9999 }}>
             Delivering tailored technology services to drive growth and efficiency
           </p>
+
+<br></br>
           <div className="hero-buttons">
             <a href="/services" className="btn btn-primary">Our Services</a>
             <a href="/contact" className="btn btn-secondary">Get Started</a>

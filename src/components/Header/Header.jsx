@@ -34,19 +34,24 @@ const Header = () => {
       Home
     </Link>
 
-    <Link to="/about" className={`nav-link ${isActive("/about") ? "active" : ""}`}>
-      About
+   <Link
+        to="/about"
+        className={`nav-link ${isActive("/about") ? "active" : ""}`}
+      >
+        About
     </Link>
-
-    {/* SERVICES */}
-    <div
-      className="nav-mega-wrap"
-      onMouseEnter={() => setOpenMega("services")}
-      onMouseLeave={() => setOpenMega(null)}
-    >
-      <Link to="/services" className={`nav-link ${isActive("/services") ? "active" : ""}`}>
-        Services ▾
-      </Link>
+   {/* SERVICES */}
+          <div
+            className="nav-mega-wrap"
+            onMouseEnter={() => setOpenMega("services")}
+            onMouseLeave={() => setOpenMega(null)}
+          >
+            <Link
+              to="/services"
+              className={`nav-link ${isActive("/services") ? "active" : ""}`}
+            >
+              Services ▾
+            </Link>
 
       {openMega === "services" && (
         <div className="nav-mega">
@@ -101,21 +106,11 @@ const Header = () => {
       )}
     </div>
 
-    <Link to="/contact" className={`nav-link ${isActive("/contact") ? "active" : ""}`}>
-      Contact
-    </Link>
-  </nav>
-
-  {/* CONTACT US BUTTON – FAR RIGHT */}
-  <Link to="/contact" className="contact-us-btn">
-   Get Start
-  </Link>
-</div>
-
-          
-      
-        
-     
+      <Link to="/contact" className={`nav-link ${isActive("/contact") ? "active" : ""}`}>
+            Contact
+          </Link>
+        </nav>
+      </div>
     </header>
   );
 };
