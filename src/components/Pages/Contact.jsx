@@ -1,22 +1,38 @@
 import { useState, useEffect } from "react";
 
+/* 🔹 Animated Letters Component */
+const AnimatedLetters = ({ text, delay = 0 }) => {
+  return (
+    <span className="animated-text" aria-label={text}>
+      {text.split("").map((char, i) => (
+        <span
+          key={i}
+          className="char"
+          style={{ animationDelay: `${delay + i * 0.05}s` }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </span>
+  );
+};
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
+    company: "",
     email: "",
+    phone: "",
+    topic: "",
     message: "",
   });
 
-  /* 🔹 Reveal animation (UP & DOWN) */
+  /* 🔹 Reveal animation */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          } else {
-            entry.target.classList.remove("active");
-          }
+          entry.target.classList.toggle("active", entry.isIntersecting);
         });
       },
       { threshold: 0.15 }
@@ -30,36 +46,24 @@ const Contact = () => {
   }, []);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
     alert("Thank you for your message! We will get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({
+      name: "",
+      company: "",
+      email: "",
+      phone: "",
+      topic: "",
+      message: "",
+    });
   };
 
   return (
     <div className="page">
-
-      {/* FIX REVEAL */}
-      <style>
-        {`
-          .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
-          }
-          .reveal.active {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-          }
-        `}
-      </style>
 
       {/* HERO */}
       <section className="page-hero reveal">
@@ -76,14 +80,20 @@ const Contact = () => {
         className="contact-hero-banner reveal"
         style={{
           backgroundImage:
-            'url("https://www.shutterstock.com/image-vector/contact-us-background-eps-vector-600nw-2491405611.jpg")',
+            'url("https://t3.ftcdn.net/jpg/05/30/96/04/360_F_530960431_c8fPd3HansYvrSJ4fJxZqp9OhjQmYoll.jpg")',
         }}
       >
         <div className="contact-hero-overlay">
           <div className="contact-hero-text reveal">
-            <h1>GET IN TOUCH</h1>
+            <h1>
+              <AnimatedLetters text="GET IN TOUCH" />
+            </h1>
+
             <p>
-              We’d love to hear from you. Let’s build something great together.
+              <AnimatedLetters
+                text="We’d love to hear from you. Let’s build something great together."
+                delay={0.4}
+              />
             </p>
           </div>
         </div>
@@ -91,49 +101,26 @@ const Contact = () => {
 
       {/* CONTACT CONTENT */}
       <section className="contact-content">
-        <div className="container">
-          <div className="contact-wrapper">
+        <div className="contact-wrapper">
 
-            {/* CONTACT INFO */}
-            <div className="contact-info reveal">
-              <strong>Let's Talk</strong>
-              <p>
-                Have a project in mind? We'd love to hear from you.
-                Send us a message and we'll respond as soon as possible.
-              </p>
+          {/* LEFT IMAGE */}
+          <div className="contact-info reveal">
+            <img
+              src="https://st3.depositphotos.com/1001877/32125/i/450/depositphotos_321258156-stock-photo-contact-us-website-page-on.jpg"
+              alt="Contact us"
+              className="contact-info-image"
+            />
+          </div>
 
-              <div className="contact-details">
-                <div className="contact-item reveal">
-                  <strong>Email:</strong>
-                  <p>
-                    <a href="mailto:info@absnit.com">info@absnit.com</a>
-                  </p>
-                </div>
+          {/* RIGHT FORM */}
+          <form className="contact-form reveal" onSubmit={handleSubmit}>
 
-                <div className="contact-item reveal">
-                  <strong>Phone:</strong>
-                  <p>
-                    <a href="tel:+919948550646">+91 9948550646</a>
-                  </p>
-                </div>
-
-                <div className="contact-item reveal">
-                  <strong>Address:</strong>
-                  <p>
-                    1-111 Madhannapet, Narsampet,<br />
-                    Warangal, Telangana 506132
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* CONTACT FORM */}
-            <form className="contact-form reveal" onSubmit={handleSubmit}>
+            {/* ROW 1 */}
+            <div className="form-row">
               <div className="form-group reveal">
-                <label htmlFor="name">Name</label>
+                <label>Full name</label>
                 <input
                   type="text"
-                  id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
@@ -142,10 +129,22 @@ const Contact = () => {
               </div>
 
               <div className="form-group reveal">
-                <label htmlFor="email">Email</label>
+                <label>Company</label>
+                <input
+                  type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            {/* ROW 2 */}
+            <div className="form-row">
+              <div className="form-group reveal">
+                <label>Email</label>
                 <input
                   type="email"
-                  id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
@@ -154,30 +153,64 @@ const Contact = () => {
               </div>
 
               <div className="form-group reveal">
-                <label htmlFor="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="6"
-                  value={formData.message}
+                <label>Mobile number</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
                   onChange={handleChange}
-                  required
-                ></textarea>
+                />
               </div>
+            </div>
 
-              <button type="submit" className="btn btn-primary reveal">
-                Send Message
-              </button>
-            </form>
+            {/* TOPIC */}
+            <div className="form-group reveal">
+              <label>Topic</label>
+              <select
+                name="topic"
+                value={formData.topic}
+                onChange={handleChange}
+              >
+                <option value="">Select</option>
+                <option value="software">Software Development</option>
+                <option value="consulting">IT Consulting</option>
+                <option value="cloud">Cloud Solutions</option>
+                <option value="security">Cybersecurity</option>
+              </select>
+            </div>
 
-          </div>
+            {/* MESSAGE */}
+            <div className="form-group reveal">
+              <label>How can we help?</label>
+              <textarea
+                name="message"
+                rows="4"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            {/* FILE UPLOAD */}
+            <div className="form-group reveal">
+              <label>Supporting file (PDF, DOCX, ZIP, PPTX)</label>
+              <input type="file" />
+            </div>
+
+            <button type="submit" className="btn btn-primary reveal">
+              Send Message
+            </button>
+          </form>
+
         </div>
       </section>
 
-      {/* OUR LOCATION */}
+      {/* LOCATION */}
       <section className="contact-location-section reveal">
         <div className="container">
-          <h2 className="location-heading reveal">Headquarters Location</h2>
+          <h2 className="location-heading reveal">
+            Headquarters Location
+          </h2>
 
           <div className="location-card reveal">
             <div className="location-left">
@@ -188,7 +221,6 @@ const Contact = () => {
                 Narsampet Mandal,<br />
                 Warangal, Telangana – 506132
               </p>
-              <br />
               <p><strong>Phone:</strong> +91 9948550646</p>
               <p><strong>Email:</strong> info@absnit.com</p>
             </div>
@@ -198,7 +230,7 @@ const Contact = () => {
                 title="Warangal Location"
                 src="https://www.google.com/maps?q=Madannapet,Narsampet,Warangal,Telangana&output=embed"
                 loading="lazy"
-              ></iframe>
+              />
             </div>
           </div>
         </div>

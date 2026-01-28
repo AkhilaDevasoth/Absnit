@@ -1205,60 +1205,114 @@ nav {
 
 /* Contact */
 .contact-content {
-  padding: 3rem 0 4rem;
+  width: 100%;
+  padding: 80px 0;
+
+  position: relative;
+  isolation: isolate;   /* 🔑 stops overlap with previous section */
 }
+
 
 .contact-wrapper {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 2rem;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;              /* ✅ EDGE TO EDGE */
+  align-items: stretch;
 }
+
 
 .contact-info {
-  background: #fff;
-  border: 1px solid #254A8A;
-  border-radius: 16px;
-  padding: 1.5rem;
+  width: 100%;
+  height: 100%;
+  min-height: 650px;
+
+  border-radius: 28px;
+  overflow: hidden;
+
+  display: flex;        /* 🔑 REQUIRED */
+  justify-self: start;
 }
 
-.contact-details {
-  margin-top: 1.25rem;
+.contact-info-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.form-row {
   display: grid;
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
 }
 
 .contact-form {
-  background: #fff;
-  border: 1px solid #022766;
-  border-radius: 16px;
-  padding: 1.5rem;
+  justify-self: end;
+  width: 100%;
+  height: 100%;
+  min-height: 650px;
+
+  padding: 60px;
+  border-radius: 28px;
+ 
+  background: #f0f1f9;
+}
+
+
+.contact-info.active {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .form-group {
   display: grid;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 0.4rem;
+  margin-bottom: 22px; /* ⬅ increase from 1rem */
+}
+.form-group label {
+  font-size: 12px;          /* ⬅ reduced from default */
+  font-weight: 500;
+  color: #475569;           /* softer gray (professional) */
+  letter-spacing: 0.2px;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
   border-radius: 12px;
-  border: 1px solid rgba(17, 24, 39, 0.14);
-  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  padding: 0.40rem 0.9rem;
   outline: none;
+
+  background-color: #ffffff; /* ✅ white box */
 }
+
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: rgba(102, 126, 234, 0.6);
+  border-color: rgba(0, 0, 0, 0.6);
   box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
 }
 
 @media (max-width: 1024px) {
   .feature-card {
     grid-column: span 6;
+  }
+}
+@media (max-width: 768px) {
+  .contact-wrapper,
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info,
+  .contact-form {
+    min-height: auto;
+    height: auto;
   }
 }
 
@@ -2932,22 +2986,23 @@ nav {
   position: relative;
 }
 
-/* DARK OVERLAY */
 .contact-hero-overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* 👉 move text to right */
-  padding-right: 80px;
+  justify-content: flex-start;   /* 👈 move text to LEFT */
+  padding-left: 80px;            /* 👈 spacing from left */
 }
+
 
 /* TEXT BLOCK */
 .contact-hero-text {
   max-width: 500px;
-  text-align: right;
+  text-align: left;   /* 👈 left aligned text */
 }
+
 
 /* TITLE – ONE LINE */
 .contact-hero-text h1 {
@@ -2963,6 +3018,78 @@ nav {
   color: #e5e7eb;
   font-size: 16px;
   line-height: 1.5;
+}
+/* INITIAL STATE (before scroll) */
+.contact-hero-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* WHEN REVEALED */
+.reveal.active .contact-hero-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* STAGGER EFFECT */
+.contact-hero-text h1 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition-delay: 0.2s;
+}
+
+.contact-hero-text p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition-delay: 0.4s;
+}
+
+/* ACTIVATE STAGGER */
+.reveal.active .contact-hero-text h1,
+.reveal.active .contact-hero-text p {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* IMAGE REVEAL */
+.contact-hero-banner {
+  opacity: 0;
+  transform: scale(1.04);
+  transition: all 1.2s ease;
+}
+
+.contact-hero-banner.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* TEXT CONTAINER */
+.contact-hero-text {
+  max-width: 520px;
+}
+
+/* LETTER ANIMATION */
+.animated-text .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: letterRise 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-play-state: paused;
+}
+
+/* START ANIMATION ON SCROLL */
+.reveal.active .char {
+  animation-play-state: running;
+}
+
+/* KEYFRAMES */
+@keyframes letterRise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* MOBILE FIX */
@@ -3782,5 +3909,38 @@ iframe {
   p {
     font-size: 14px;
     line-height: 1.6;
+  }
+}
+.stat-number {
+  font-size: 34px;
+  font-weight: 700;
+  color: #1e40af;
+  transition: transform 0.25s ease;
+}
+
+.stat-number:not(:empty) {
+  transform: translateY(-6px);
+}
+
+.stat-box p {
+  font-size: 14px;
+  color: #6b7280;
+}
+.hero-animate .char,
+.hero-badge-text .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: heroCharIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.reveal.active .char {
+  animation-play-state: running;
+}
+
+@keyframes heroCharIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -1,33 +1,116 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  /* ================= REVEAL ANIMATION ================= */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          } else {
+            entry.target.classList.remove("active");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
 
- useEffect(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        } else {
-          // 🔥 enables reveal when scrolling UP again
-          entry.target.classList.remove("active");
+    document.querySelectorAll(".reveal").forEach((el) =>
+      observer.observe(el)
+    );
+
+    return () => observer.disconnect();
+  }, []);
+
+  /* ================= STATS COUNT-UP - ABOUT SECTION ================= */
+  const [clients, setClients] = useState(0);
+  const [projects, setProjects] = useState(0);
+  const [platforms, setPlatforms] = useState(0);
+
+  const statsRef = useRef(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+
+          animateCount(150, setClients);
+          animateCount(130, setProjects);
+          animateCount(4, setPlatforms);
         }
-      });
-    },
-    { threshold: 0.15 }
-  );
+      },
+      { threshold: 0.4 }
+    );
 
-  document.querySelectorAll(".reveal").forEach((el) =>
-    observer.observe(el)
-  );
+    if (statsRef.current) observer.observe(statsRef.current);
+    return () => observer.disconnect();
+  }, []);
 
-  return () => observer.disconnect();
-}, []);
+  /* ================= STATS COUNT-UP - WHY SECTION ================= */
+  const [years, setYears] = useState(0);
+  const [experts, setExperts] = useState(0);
+  const [projectsHome, setProjectsHome] = useState(0);
+
+  const homeWhyStatsRef = useRef(null);
+  const homeWhyAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !homeWhyAnimated.current) {
+          homeWhyAnimated.current = true;
+
+          animateCount(10, setYears);
+          animateCount(100, setExperts);
+          animateCount(500, setProjectsHome);
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (homeWhyStatsRef.current) observer.observe(homeWhyStatsRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const animateCount = (target, setter) => {
+    let current = 0;
+    const duration = 1200;
+    const step = Math.max(1, Math.floor(target / (duration / 16)));
+
+    const update = () => {
+      current += step;
+      if (current >= target) {
+        setter(target);
+      } else {
+        setter(current);
+        requestAnimationFrame(update);
+      }
+    };
+
+    requestAnimationFrame(update);
+  };
+const AnimatedText = ({ text, className, delay = 0 }) => {
+  return (
+    <span className={className} aria-label={text}>
+      {text.split("").map((char, index) => (
+        <span
+          key={index}
+          className="char"
+          style={{ animationDelay: `${delay + index * 0.04}s` }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </span>
+  );
+};
 
   return (
     <div className="page home-page">
-
       <section className="hero hero-slideshow">
         <video
           className="hero-video"
@@ -52,14 +135,25 @@ const Home = () => {
             <span className="hero-badge-dot" aria-hidden="true"></span>
             <span className="hero-badge-text">Introducing ABSN IT Solutions</span>
           </div>
-          <h1 className="reveal" style={{ color: "#4d68e2", fontSize: "45px", fontWeight: "bold", zIndex: 9999 }}>
-            Empowering Your Business with Innovative IT Solution
-          </h1>
+          <h1
+  className="reveal hero-animate"
+  style={{ color: "#4d68e2", fontSize: "45px", fontWeight: "bold", zIndex: 9999 }}
+>
+  <AnimatedText
+    text="Empowering Your Business with Innovative IT Solution"
+    delay={0.2}
+  />
+</h1>
 
-          <p className="reveal" style={{ color: "#8796da", fontSize: "18px", zIndex: 9999 }}>
-            Delivering tailored technology services to drive growth and efficiency
-          </p>
-
+<p
+  className="reveal hero-animate"
+  style={{ color: "#8796da", fontSize: "18px", zIndex: 9999 }}
+>
+  <AnimatedText
+    text="Delivering tailored technology services to drive growth and efficiency"
+    delay={0.4}
+  />
+</p>
 <br></br>
           <div className="hero-buttons">
             <a href="/services" className="btn btn-primary">Our Services</a>
@@ -212,17 +306,17 @@ const Home = () => {
               time or budget.
             </p>
 
-            <div className="about-stats">
+            <div className="about-stats" ref={statsRef}>
               <div>
-                <h3>150+</h3>
+                <h3>{clients}+</h3>
                 <p>Enterprise Clients</p>
               </div>
               <div>
-                <h3>130+</h3>
+                <h3>{projects}+</h3>
                 <p>IT Projects Delivered</p>
               </div>
               <div>
-                <h3>4+</h3>
+                <h3>{platforms}+</h3>
                 <p>Cloud Platforms</p>
               </div>
             </div>
@@ -350,17 +444,17 @@ const Home = () => {
         </ul>
 
         {/* STATS */}
-        <div className="home-why-stats">
+        <div className="home-why-stats" ref={homeWhyStatsRef}>
           <div>
-            <h4>10+</h4>
+            <h4>{years}+</h4>
             <span>Years</span>
           </div>
           <div>
-            <h4>100+</h4>
+            <h4>{experts}+</h4>
             <span>Experts</span>
           </div>
           <div>
-            <h4>500+</h4>
+            <h4>{projectsHome}+</h4>
             <span>Projects</span>
           </div>
         </div>
