@@ -54,6 +54,31 @@ const CloudSolutions = () => {
           </p>
         </div>
       </section>
+{/* ===============================
+    CLOUD SOLUTIONS – FEATURE
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      <img
+        src="https://img.freepik.com/premium-vector/cloud-computing-conceptcloud-storage-with-data-protected-exchange_387612-13.jpg?semt=ais_hybrid&w=740&q=80"
+        alt="Cloud Solutions"
+      />
+
+      <div className="overlay"></div>
+
+      <div className="overlay-content">
+        <h2>Cloud Solutions & Platforms</h2>
+        <p>
+          We help organizations migrate, modernize, and scale using secure,
+          cloud-native architectures powered by modern platforms.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* MAIN CONTENT (UNCHANGED) */}
       <section className="services-content">

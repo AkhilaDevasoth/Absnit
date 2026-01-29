@@ -3,18 +3,16 @@ import { useNavigate } from "react-router-dom";
 
 const TechnologiesWeUse = () => {
   const navigate = useNavigate();
+
   const [hoverTitle, setHoverTitle] = useState(null);
+  const [activeCard, setActiveCard] = useState(null); // ✅ ADD THIS
 
   /* 🔹 Reveal on scroll */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          } else {
-            entry.target.classList.remove("active");
-          }
+          entry.target.classList.toggle("active", entry.isIntersecting);
         });
       },
       { threshold: 0.2 }
@@ -34,9 +32,9 @@ const TechnologiesWeUse = () => {
       description: "Java, Python, JavaScript, C# and more.",
       image: "https://cdn-icons-png.freepik.com/512/11557/11557320.png",
       sideImage:
-        "https://media.istockphoto.com/id/1411610158/photo/multi-colored-programming-language-source-code-design-example-front-view-composition-on-a.jpg?s=612x612&w=0&k=20&c=8f8J6Rw8HTRbWbSjeLBt33IT0o3T9Hpt07c4SnUwkbU=",
+        "https://st4.depositphotos.com/14735134/29560/v/450/depositphotos_295605928-stock-illustration-python-coding-language-sign-on.jpg",
       bgImage:
-        "https://media.istockphoto.com/id/1411610158/photo/multi-colored-programming-language-source-code-design-example-front-view-composition-on-a.jpg",
+        "https://img.freepik.com/premium-photo/abstract-tech-binary-code-background-color-blue-matrix-backdrop-with-number-1-0-digital-binary-data-secure-data-concept-perspective_494516-936.jpg",
       route: "/technology/programming-languages",
     },
     {
@@ -48,7 +46,7 @@ const TechnologiesWeUse = () => {
       sideImage:
         "https://www.imensosoftware.com/wp-content/uploads/2019/06/best-framwork-3.png",
       bgImage:
-        "https://cbx-prod.b-cdn.net/COLOURBOX42701936.jpg?width=800&height=800&quality=70",
+        "https://zd-brightspot.s3.us-east-1.amazonaws.com/wp-content/uploads/2023/10/27121239/Framework.jpg",
       route: "/technology/frameworks",
     },
     {
@@ -59,7 +57,7 @@ const TechnologiesWeUse = () => {
       sideImage:
         "https://i0.wp.com/technoexcel.in/blogs/wp-content/uploads/2022/06/Blog-5-Introduction-to-SQL.png",
       bgImage:
-        "https://www.shutterstock.com/image-vector/sql-database-icon-black-white-600nw-2616303455.jpg",
+        "https://www.shutterstock.com/image-illustration/multiple-databases-relational-database-tables-600nw-2491887133.jpg",
       route: "/technology/database",
     },
     {
@@ -70,7 +68,7 @@ const TechnologiesWeUse = () => {
       sideImage:
         "https://www.mygreatlearning.com/blog/wp-content/uploads/2020/07/Blog-Feature-Cloud-Computing-1000X700-A-1.jpg",
       bgImage:
-        "https://www.orientsoftware.com/Themes/Content/Images/blog/2025-11-21/cloud-computing-programming-languages-csharp.webp",
+        "https://www.shutterstock.com/image-vector/abstract-cloud-technology-circuit-board-600nw-2669250763.jpg",
       route: "/technology/cloud-platforms",
     },
     {
@@ -82,7 +80,7 @@ const TechnologiesWeUse = () => {
       sideImage:
         "https://media.geeksforgeeks.org/wp-content/uploads/20240305112848/DevOps-Programming-Languages-You-Must-Know.png",
       bgImage:
-        "https://thumbs.dreamstime.com/b/devops-infinity-symbol-isolated-white-background-image-features-person-icon-gear-representing-continuous-428604285.jpg",
+        "https://www.buzzybrains.com/blog/wp-content/uploads/2025/08/top-azure-devops-tools-banner.jpg",
       route: "/technology/devops-tools",
     },
   ];
@@ -92,16 +90,10 @@ const TechnologiesWeUse = () => {
       {/* HERO */}
       <section className="page-hero">
         <div className="container">
-          <h1
-            className="page-title"
-            style={{ textAlign: "center", color: "#254A8A" }}
-          >
+          <h1 className="page-title" style={{ textAlign: "center", color: "#254A8A" }}>
             Technologies We Use
           </h1>
-          <p
-            className="page-subtitle"
-            style={{ textAlign: "center", fontSize: "22px" }}
-          >
+          <p className="page-subtitle" style={{ textAlign: "center", fontSize: "22px" }}>
             Tools & Frameworks
           </p>
         </div>
@@ -126,9 +118,10 @@ const TechnologiesWeUse = () => {
 
                 {/* CARD */}
                 <div
-                  className={`service-card service-fixed reveal ${
-                    showBg ? "service-card-with-bg" : ""
-                  }`}
+                  className={`service-card service-fixed reveal
+                    ${showBg ? "service-card-with-bg" : ""}
+                    ${activeCard === item.id ? "card-active" : ""}
+                  `}
                   style={
                     showBg
                       ? {
@@ -140,7 +133,13 @@ const TechnologiesWeUse = () => {
                   }
                   onMouseEnter={() => setHoverTitle(item.title)}
                   onMouseLeave={() => setHoverTitle(null)}
-                  onClick={() => navigate(item.route)}
+                  onClick={() => {
+  setActiveCard(item.id);          // set active first
+  setTimeout(() => {
+    navigate(item.route);          // navigate after color change
+  }, 120);                         // small delay (smooth UX)
+}}
+
                 >
                   <img
                     src={item.image}
@@ -148,7 +147,16 @@ const TechnologiesWeUse = () => {
                     className="service-icon-img"
                   />
                   <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+                 <p
+  style={{
+    color:
+      hoverTitle === item.title ? "#ffffff" : "#6b6969",
+    transition: "color 0.5s ease",
+  }}
+>
+  {item.description}
+</p>
+
                 </div>
               </div>
             );

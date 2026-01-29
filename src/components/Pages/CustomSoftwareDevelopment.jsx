@@ -56,6 +56,35 @@ const CustomSoftwareDevelopment = () => {
           </p>
         </div>
       </section>
+      {/* ===============================
+    FIRST FEATURE BOX (TEXT ON IMAGE)
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      {/* BACKGROUND IMAGE */}
+      <img
+        src="https://www.shutterstock.com/image-photo/data-science-engineering-digital-technology-260nw-2698136865.jpg"
+        alt="Custom Software Development"
+      />
+
+      {/* OVERLAY */}
+      <div className="overlay"></div>
+
+      {/* TEXT */}
+      <div className="overlay-content">
+        <h2>Custom Software Development</h2>
+        <p>
+          Enterprise-grade, secure, and scalable software solutions tailored to
+          your business needs.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* MAIN CONTENT (UNCHANGED) */}
       <section className="services-content">

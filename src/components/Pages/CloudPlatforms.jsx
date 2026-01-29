@@ -54,6 +54,33 @@ const CloudPlatforms = () => {
           </p>
         </div>
       </section>
+{/* ===============================
+    CLOUD PLATFORMS – FEATURE BOX
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      {/* BACKGROUND IMAGE */}
+      <img
+        src="https://www.shutterstock.com/image-photo/cloud-engineer-hands-holding-platform-260nw-2688670933.jpg"
+        alt="AI Cloud Platforms"
+      />
+
+      {/* GRADIENT OVERLAY */}
+      <div className="overlay"></div>
+
+      {/* OVERLAY TEXT */}
+      <div className="overlay-content">
+        <h2>Cloud Platforms & AI-Powered Solutions</h2>
+        <p>
+          We leverage modern cloud computing and AI technologies to build scalable,
+          resilient, and secure digital platforms that power business transformation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* MAIN CONTENT (UNCHANGED) */}
       <section className="services-content">

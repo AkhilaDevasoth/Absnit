@@ -54,6 +54,32 @@ const Database = () => {
           </p>
         </div>
       </section>
+{/* ===============================
+    DATABASE TECHNOLOGIES – FEATURE SECTION
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwqgCd-hFFMZwp2owsr8FXyguqUxaq3cuY6A&s"
+        alt="Database Technologies"
+      />
+
+      <div className="overlay"></div>
+
+      <div className="overlay-content">
+        <h2>Database Technologies</h2>
+        <p>
+          We design and implement powerful database technologies and data
+          storage solutions that are secure, scalable, and optimized for
+          performance across applications and enterprise systems.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* MAIN CONTENT (UNCHANGED) */}
       <section className="services-content">

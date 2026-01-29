@@ -40,6 +40,33 @@ const Finance = () => {
           </p>
         </div>
       </section>
+{/* ===============================
+    FINANCE SOLUTIONS – FEATURE SECTION
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      <img
+        src="https://www.clari5.com/wp-content/uploads/2017/07/Customer-Liability-in-The-Age-of-Digital-Banking-Banner-1024x308-1.jpg"
+        alt="Finance Solutions"
+      />
+
+      <div className="overlay"></div>
+
+      <div className="overlay-content">
+        <h2>Finance Solutions</h2>
+        <p>
+          We deliver powerful, scalable financial technology solutions
+          tailored for banks, fintechs, and financial institutions to
+          streamline operations, enhance customer experiences, and support
+          digital transformation.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* MAIN CONTENT — KEPT SAME */}
       <section className="services-content">

@@ -50,6 +50,33 @@ const DevOpsTools = () => {
           </p>
         </div>
       </section>
+      {/* ===============================
+    DEVOPS TOOLS – FEATURE SECTION
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      <img
+        src="https://media.licdn.com/dms/image/v2/C4D12AQGAVZ42ePdNwA/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1625751116779?e=2147483647&v=beta&t=Jp428ZsvfnD78HaOJRk29ie2fL6ESspXYaekVLrhlsI"
+        alt="DevOps Tools"
+      />
+
+      <div className="overlay"></div>
+
+      <div className="overlay-content">
+        <h2>DevOps Tools & Automation</h2>
+        <p>
+          We help organizations streamline development and operations by
+          implementing modern DevOps tools and automation practices to
+          accelerate delivery cycles, increase reliability, and improve
+          operational efficiency.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* MAIN CONTENT (UNCHANGED) */}
       <section className="services-content">

@@ -56,6 +56,32 @@ const ProgrammingLanguages = () => {
           </p>
         </div>
       </section>
+{/* ===============================
+    PROGRAMMING LANGUAGES – FEATURE SECTION
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      <img
+        src="https://newrelic.com/sites/default/files/2021-04/good-programmer-banner-final.jpg"
+        alt="Programming Languages"
+      />
+
+      <div className="overlay"></div>
+
+      <div className="overlay-content">
+        <h2>Programming Languages</h2>
+        <p>
+          We specialize in developing software using modern programming
+          languages and frameworks to create scalable, maintainable, and
+          high-performance applications across platforms.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* MAIN CONTENT */}
       <section className="services-content">

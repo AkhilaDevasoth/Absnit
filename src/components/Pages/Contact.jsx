@@ -106,7 +106,7 @@ const Contact = () => {
           {/* LEFT IMAGE */}
           <div className="contact-info reveal">
             <img
-              src="https://st3.depositphotos.com/1001877/32125/i/450/depositphotos_321258156-stock-photo-contact-us-website-page-on.jpg"
+              src="https://media.istockphoto.com/id/1271752802/photo/phone-and-e-mail-icons-on-wooden-cubes-with-contact-us-text-on-blue-background-web-page.jpg?s=612x612&w=0&k=20&c=dk9oPaDy_L9mv_icOMgsFGzEDrX0NUI3I8xBQ-DAxQM="
               alt="Contact us"
               className="contact-info-image"
             />

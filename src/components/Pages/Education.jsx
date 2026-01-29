@@ -47,6 +47,32 @@ const Education = () => {
           </p>
         </div>
       </section>
+{/* ===============================
+    EDUCATION SOLUTIONS – FEATURE SECTION
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      <img
+        src="https://img.freepik.com/premium-vector/linkedin-banner-with-graduation-cap-light-bulb_193066-555.jpg"
+        alt="Education Solutions"
+      />
+
+      <div className="overlay"></div>
+
+      <div className="overlay-content">
+        <h2>Education Solutions</h2>
+        <p>
+          We build innovative, scalable digital platforms tailored for
+          educational institutions, e-learning applications, and knowledge
+          communities to improve learning outcomes and engagement.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* MAIN CONTENT */}
       <section className="services-content">

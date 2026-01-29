@@ -3,18 +3,16 @@ import { useNavigate } from "react-router-dom";
 
 const IndustriesWeServe = () => {
   const navigate = useNavigate();
+
   const [hoverTitle, setHoverTitle] = useState(null);
+  const [activeCard, setActiveCard] = useState(null); // ✅ SAME AS TECHNOLOGIES
 
   /* 🔹 Reveal on scroll */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          } else {
-            entry.target.classList.remove("active");
-          }
+          entry.target.classList.toggle("active", entry.isIntersecting);
         });
       },
       { threshold: 0.2 }
@@ -36,7 +34,7 @@ const IndustriesWeServe = () => {
       sideImage:
         "https://thumbs.dreamstime.com/b/medical-coverage-insurance-concept-hands-doctor-covering-symbols-icons-blue-background-copy-space-web-banner-template-152592412.jpg",
       bgImage:
-        "https://static.vecteezy.com/system/resources/thumbnails/070/211/753/small/medical-stethoscope-on-white-background-photo.jpeg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpv1sh6O25-FKAb7L5Qci0zMqKJCq2kQ3KdA&s",
       route: "/industries/healthcare",
     },
     {
@@ -45,9 +43,9 @@ const IndustriesWeServe = () => {
       description:
         "We empower educational institutions with smart digital solutions including LMS platforms, student information systems, online examinations, and custom EdTech software.",
       sideImage:
-        "https://img.freepik.com/free-photo/front-view-colored-pencils-kept-glass-jar-stacked-spiral-notebooks-right-side-blue-color_140725-138995.jpg?semt=ais_hybrid&w=740&q=80",
+        "https://img.freepik.com/free-photo/front-view-colored-pencils-kept-glass-jar-stacked-spiral-notebooks-right-side-blue-color_140725-138995.jpg",
       bgImage:
-        "https://thumbs.dreamstime.com/b/education-doodle-art-text-banner-middle-black-white-color-vector-illustration-130238518.jpg",
+        "https://img.freepik.com/free-vector/disruptive-education-globe-background-vector-geography-digital-remix_53876-140586.jpg?semt=ais_hybrid&w=740&q=80",
       route: "/industries/education",
     },
     {
@@ -69,7 +67,7 @@ const IndustriesWeServe = () => {
       sideImage:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxojJ1KqqRnDLMbIJr833WLUPJfVF9-hz2dQ&s",
       bgImage:
-        "https://st4.depositphotos.com/13324256/30228/i/450/depositphotos_302280866-stock-photo-cropped-view-woman-holding-letter.jpg",
+        "https://www.shutterstock.com/image-illustration/blue-money-business-graph-finance-260nw-2166540277.jpg",
       route: "/industries/finance",
     },
     {
@@ -80,7 +78,7 @@ const IndustriesWeServe = () => {
       sideImage:
         "https://img.freepik.com/free-photo/black-friday-sales-sign-neon-light_23-2151833076.jpg",
       bgImage:
-        "https://png.pngtree.com/background/20230527/original/pngtree-white-storefront-on-a-white-background-picture-image_2769758.jpg",
+        "https://png.pngtree.com/thumb_back/fh260/background/20241227/pngtree-blue-background-with-shopping-bags-a-display-ideal-for-retail-and-image_16870320.jpg",
       route: "/industries/retail",
     },
   ];
@@ -90,10 +88,16 @@ const IndustriesWeServe = () => {
       {/* HERO */}
       <section className="page-hero">
         <div className="container">
-          <h1 className="page-title" style={{ textAlign: "center", color: "#254A8A" }}>
+          <h1
+            className="page-title"
+            style={{ textAlign: "center", color: "#254A8A" }}
+          >
             Industries We Serve
           </h1>
-          <p className="page-subtitle" style={{ textAlign: "center", fontSize: "22px" }}>
+          <p
+            className="page-subtitle"
+            style={{ textAlign: "center", fontSize: "22px" }}
+          >
             Solutions tailored to the needs of your industry
           </p>
         </div>
@@ -112,19 +116,16 @@ const IndustriesWeServe = () => {
                 className={`service-row ${isRight ? "right" : "left"}`}
               >
                 {/* SIDE IMAGE */}
-                <div
-                  className={`service-side-image reveal ${
-                    isRight ? "reveal-right" : "reveal-left"
-                  }`}
-                >
+                <div className="service-side-image reveal">
                   <img src={item.sideImage} alt={item.title} />
                 </div>
 
                 {/* CARD */}
                 <div
-                  className={`service-card service-fixed reveal ${
-                    showBg ? "service-card-with-bg" : ""
-                  }`}
+                  className={`service-card service-fixed reveal
+                    ${showBg ? "service-card-with-bg" : ""}
+                    ${activeCard === item.id ? "card-active" : ""}
+                  `}
                   style={
                     showBg
                       ? {
@@ -136,10 +137,28 @@ const IndustriesWeServe = () => {
                   }
                   onMouseEnter={() => setHoverTitle(item.title)}
                   onMouseLeave={() => setHoverTitle(null)}
-                  onClick={() => navigate(item.route)}
+                  onClick={() => {
+                    setActiveCard(item.id);
+                    setTimeout(() => {
+                      navigate(item.route);
+                    }, 120);
+                  }}
                 >
                   <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+
+                  {/* ✅ INLINE STYLE = GUARANTEED COLOR CHANGE */}
+                  <p
+                    style={{
+                      color:
+                        hoverTitle === item.title ||
+                        activeCard === item.id
+                          ? "#ffffff"
+                          : "#6b6969",
+                      transition: "color 0.5s ease",
+                    }}
+                  >
+                    {item.description}
+                  </p>
                 </div>
               </div>
             );

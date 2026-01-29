@@ -54,6 +54,33 @@ const CybersecurityServices = () => {
           </p>
         </div>
       </section>
+      {
+      /* ===============================
+    CYBERSECURITY SERVICES – FEATURE SECTION
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      <img
+        src="https://www.squiresgroup.com/wp-content/uploads/2025/05/cybersecurity-service.webp"
+        alt="Cybersecurity Services"
+      />
+
+      <div className="overlay"></div>
+
+      <div className="overlay-content">
+        <h2>Cybersecurity Services</h2>
+        <p>
+          We deliver comprehensive cybersecurity solutions to protect your
+          business from evolving digital threats and ensure data integrity,
+          confidentiality, and compliance.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* MAIN CONTENT (UNCHANGED) */}
       <section className="services-content">

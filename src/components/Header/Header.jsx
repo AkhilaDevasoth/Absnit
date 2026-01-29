@@ -110,6 +110,10 @@ const Header = () => {
             Contact
           </Link>
         </nav>
+
+        <Link to="/contact" className="btn btn-primary" style={{ marginLeft: "70px", padding: "8px 16px", fontSize: "14px" }}>
+          Contact Us
+        </Link>
       </div>
     </header>
   );

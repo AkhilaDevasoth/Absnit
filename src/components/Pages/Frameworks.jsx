@@ -54,6 +54,32 @@ const Frameworks = () => {
           </p>
         </div>
       </section>
+{/* ===============================
+    FRAMEWORKS – FEATURE SECTION
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      <img
+        src="https://media.licdn.com/dms/image/v2/C5616AQH6SUoB3Neo6g/profile-displaybackgroundimage-shrink_200_800/profile-displaybackgroundimage-shrink_200_800/0/1651210171876?e=2147483647&v=beta&t=bgdjeJ1O7fpStRxpzShynhABBXCwsbDxBV_5E933TnM"
+        alt="Frameworks"
+      />
+
+      <div className="overlay"></div>
+
+      <div className="overlay-content">
+        <h2>Frameworks & Libraries</h2>
+        <p>
+          We work with a range of modern frameworks and libraries to build 
+          high-performance, scalable, and maintainable applications that deliver
+          great user experiences and robust backend performance.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* MAIN CONTENT (UNCHANGED) */}
       <section className="services-content">

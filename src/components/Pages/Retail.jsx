@@ -46,6 +46,32 @@ const Retail = () => {
           </p>
         </div>
       </section>
+{/* ===============================
+    RETAIL SOLUTIONS – FEATURE SECTION
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      <img
+        src="https://igtsolutions.com/wp-content/uploads/2021/12/Importance-of-Automation-Testing.jpg"
+        alt="Retail Solutions"
+      />
+
+      <div className="overlay"></div>
+
+      <div className="overlay-content">
+        <h2>Retail Solutions</h2>
+        <p>
+          We provide tailored digital solutions for retail businesses,
+          helping automate workflows, elevate customer experiences, and
+          optimize operations for modern retail environments.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* MAIN CONTENT — KEPT SAME */}
       <section className="services-content">

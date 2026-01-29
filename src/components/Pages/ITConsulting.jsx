@@ -56,6 +56,32 @@ const ITConsulting = () => {
           </p>
         </div>
       </section>
+{/* ===============================
+    IT CONSULTING – FEATURE SECTION
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      <img
+        src="https://www.initiatefirst-is.com/wp-content/uploads/2021/09/advanced-analytics-1520by500.jpg"
+        alt="IT Consulting Services"
+      />
+
+      <div className="overlay"></div>
+
+      <div className="overlay-content">
+        <h2>IT Consulting</h2>
+        <p>
+          We provide strategic IT consulting services to help organizations
+          align technology with business goals, optimize operations, and
+          drive digital transformation.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
    {/* MAIN CONTENT */}
 <section className="services-content">

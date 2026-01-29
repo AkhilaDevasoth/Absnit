@@ -62,6 +62,32 @@ const MobileAppDevelopment = () => {
           </p>
         </div>
       </section>
+{/* ===============================
+    MOBILE APP DEVELOPMENT – FEATURE
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      <img
+        src="https://www.drinfosoft.com/wp-content/uploads/2023/11/mobile-app-development.jpg"
+        alt="Mobile App Development"
+      />
+
+      <div className="overlay"></div>
+
+      <div className="overlay-content">
+        <h2>Mobile App Development</h2>
+        <p>
+          We design and build high-performance mobile applications with
+          intuitive user experiences for Android and iOS platforms.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</section>
 
      {/* MAIN CONTENT */}
 <section className="services-content">

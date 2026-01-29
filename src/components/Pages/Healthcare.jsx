@@ -46,6 +46,32 @@ const Healthcare = () => {
           </p>
         </div>
       </section>
+      {/* ===============================
+    HEALTHCARE SOLUTIONS – FEATURE SECTION
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwH2UE5_rw0-fJ8K6Y3-ClQOhHz-3--3kLgg&s"
+        alt="Healthcare Solutions"
+      />
+
+      <div className="overlay"></div>
+
+      <div className="overlay-content">
+        <h2>Healthcare Solutions</h2>
+        <p>
+          We provide tailored, secure healthcare solutions that drive better
+          patient outcomes, streamline workflows, and support seamless digital
+          transformation across the healthcare ecosystem.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* MAIN CONTENT — KEPT SAME */}
       <section className="services-content">

@@ -46,6 +46,32 @@ const Manufacturing = () => {
           </p>
         </div>
       </section>
+{/* ===============================
+    MANUFACTURING SOLUTIONS – FEATURE SECTION
+================================ */}
+<section className="services-content">
+  <div className="container">
+    <div className="feature-image-overlay reveal">
+
+      <img
+        src="https://img.freepik.com/premium-vector/website-header-banner-design-with-cogs-gear-wheel-mechanisms_302149-557.jpg?semt=ais_hybrid&w=740&q=80"
+        alt="Manufacturing Solutions"
+      />
+
+      <div className="overlay"></div>
+
+      <div className="overlay-content">
+        <h2>Manufacturing Solutions</h2>
+        <p>
+          We enable manufacturing enterprises to modernize operations with
+          custom digital solutions that optimize processes, power automation,
+          and improve production efficiency at scale.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* MAIN CONTENT — KEPT SAME */}
       <section className="services-content">

@@ -45,13 +45,10 @@ body {
 }
 
 .logo img {
-  height: 60px;
+  height: 50px;
   width: auto;
   display: block;
 }
-
-
-
 
 
 .nav {
@@ -59,9 +56,8 @@ body {
   align-items: center;
   gap: 1.25rem;
 
-  margin-left: 4rem;   /* ✅ SPACE between logo & menu */
+  margin-left: 0rem;   /* ✅ SPACE between logo & menu */
 }
-
 
 
 .nav-link {
@@ -1287,10 +1283,7 @@ nav {
   border: 1px solid rgba(0, 0, 0, 0.14);
   padding: 0.40rem 0.9rem;
   outline: none;
-
-  background-color: #ffffff; /* ✅ white box */
 }
-
 
 .form-group input:focus,
 .form-group textarea:focus {
@@ -1808,6 +1801,31 @@ nav {
   margin: 0 auto 1rem;
   display: block;
 }
+/* ===============================
+   CLICK ACTIVE CARD TEXT COLOR
+================================ */
+
+/* Default title color */
+.service-card h3,
+.tech-card h3,
+.industry-card h3 {
+  color: #ffffff;
+  transition: color 0.25s ease;
+}
+
+/* Hover color (optional) */
+.service-card:hover h3,
+.tech-card:hover h3,
+.industry-card:hover h3 {
+  color: #ffffff;
+}
+
+/* ✅ CLICKED / ACTIVE CARD */
+.service-card.card-active h3,
+.tech-card.card-active h3,
+.industry-card.card-active h3 {
+  color: #dedede; /* 🔥 active text color */
+}
 
 
 .home-service-card h3 {
@@ -2051,10 +2069,6 @@ nav {
   gap: 24px;
 }
 
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
 
 /* Service Card Stagger Delays */
 .service-card:nth-child(1) {
@@ -2101,12 +2115,7 @@ nav {
   justify-content: space-between;
   gap: 3rem;
 }
-.service-row-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-}
+
 .service-fixed {
   width: 100%;
   max-width: 620px;   /* 🔥 SAME WIDTH FOR ALL */
@@ -2400,26 +2409,23 @@ nav {
   gap: 20px;
   margin-top: 40px;
 }
-
+/* Default font color */
 .industry-box {
-  min-width: 220px;
-  padding: 20px;
-  text-align: center;
-  border-radius: 12px;
-  border: 2px solid #1e40af;
-  font-size: 18px;
-  font-weight: 600;
   color: #4097CF;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: #ffffff;
+  transition: color 0.25s ease;
 }
 
+/* Hover (optional) */
 .industry-box:hover {
-  background: #1e40af;
-  color: #ffffff;
-  transform: translateY(-5px);
+  color: #1e40af;
 }
+
+/* ✅ AFTER CLICK (ACTIVE) – FONT COLOR ONLY */
+.industry-box.active {
+  color: #9333ea;   /* 🔥 clicked text color */
+}
+
+
 .industry-hero {
   height: 380px;
   background-size: cover;
@@ -2430,7 +2436,7 @@ nav {
 }
 
 .industry-hero-overlay {
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(249, 244, 244, 0.55);
   height: 100%;
   color: #fff;
   padding: 60px;
@@ -3943,4 +3949,121 @@ iframe {
     opacity: 1;
     transform: translateY(0);
   }
+}
+/* ===============================
+   IMAGE TEXT OVERLAY BOX
+================================ */
+
+/* ===============================
+   FEATURE IMAGE WITH TEXT OVERLAY
+================================ */
+
+.feature-image-overlay {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+
+  min-height: 200px;        /* 🔽 shorter height */
+  max-height: 250px;        /* optionally cap height */
+}
+
+/* Image */
+.feature-image-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gradient overlay for contrast */
+.feature-image-overlay .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.68),
+    rgba(0, 0, 64, 0.34)
+  );
+}
+
+/* Text over image */
+.overlay-content {
+  position: absolute;
+  inset: 0;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #9ac6fc;
+  max-width: 620px;
+  z-index: 2;
+}
+
+.overlay-content h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.overlay-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.overlay-content ul {
+  padding-left: 18px;
+}
+
+.overlay-content li {
+  margin-bottom: 6px;
+}
+
+/* MOBILE ADJUSTMENT */
+@media (max-width: 768px) {
+  .feature-image-overlay {
+    min-height: 220px;   /* smaller on phones */
+  }
+
+  .overlay-content {
+    padding: 20px;
+  }
+
+  .overlay-content h2 {
+    font-size: 22px;
+  }
+}
+/* ===============================
+   IMAGE + TEXT OVERLAY FEATURE
+================================ */
+.feature-image-overlay {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+.feature-image-overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feature-image-overlay .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.68),
+    rgba(0, 0, 64, 0.34)
+  );
+}
+
+.overlay-content {
+  position: absolute;
+  inset: 0;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+  max-width: 620px;
 }
