@@ -19,121 +19,106 @@ body {
 .app-main {
   flex: 1;
 }
-
-/* ===============================
-   BASE RESET
-================================ */
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/* ===============================
-   HEADER
-================================ */
-
+/* Header layout */
+/* HEADER */
 .site-header {
+  height: 56px;                 /* reduced height */
+  background: #fff;
   display: flex;
   align-items: center;
-  background: #fff;
-
-  height: 64px;          /* default desktop */
-  padding: 0;            /* remove vertical space */
 }
 
 /* CONTAINER */
 .header-container {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-
-  padding: 0 12px;       /* ⬅ only left/right */
+  padding: 0 12px;              /* ⬅ reduced side white space */
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 /* LOGO */
+/* SPACE BETWEEN LOGO AND MENU */
 .logo {
-  display: flex;
-  align-items: center;
+  margin-right: 32px;   /* adjust: 24px–40px as you like */
 }
+
 
 .logo img {
-  height: 50px;
-  width: auto;
-  display: block;
+  height: 42px;
 }
 
-/* NAV */
+/* NAVIGATION */
 .nav {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
-  margin-left: 0;
+  gap: 1.1rem;
+  flex: 1;                      /* ⭐ pushes button to right */
+  margin-left: 20px;               /* ❌ remove extra gap */
 }
 
+/* NAV LINKS */
 .nav-link {
   font-size: 0.88rem;
-  padding: 0;            /* ⬅ remove vertical padding */
+  padding: 2px 4px;
   line-height: 1;
   white-space: nowrap;
+}
+
+/* CTA BUTTON */
+.header-cta {
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* SMALL LAPTOPS */
+@media (max-width: 1024px) {
+  .nav {
+    gap: 0.9rem;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .header-cta {
+    display: none;
+  }
+}
+/* Desktop */
+@media (min-width: 1280px) {
+  .logo {
+    margin-right: 40px;
+  }
+}
+
+/* Small laptops */
+@media (max-width: 1280px) {
+  .logo {
+    margin-right: 24px;
+  }
 }
 
 .nav-link:hover {
   color: #111827;
 }
 
-/* ===============================
-   SMALL LAPTOPS (≤ 1024px)
-================================ */
-@media (max-width: 1024px) {
-  .site-header {
-    height: 56px;        /* 🔥 reduce height */
-  }
-
-  .logo img {
-    height: 42px;
-  }
-
-  .nav {
-    gap: 1rem;
-  }
-
-  .nav-link {
-    font-size: 0.85rem;
-  }
-}
-
-/* ===============================
-   TABLETS (≤ 768px)
-================================ */
-@media (max-width: 768px) {
+@media (max-height: 800px) {
   .site-header {
     height: 52px;
   }
 
-  .logo img {
-    height: 38px;
-  }
-
-  .nav {
-    gap: 0.75rem;
-  }
-
-  .nav-link {
-    font-size: 0.82rem;
+  .page-hero {
+    padding-top: 24px !important;
+    padding-bottom: 36px;
   }
 }
-
-/* ===============================
-   PHONES (≤ 480px)
-================================ */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .site-header {
     height: 48px;
   }
@@ -142,12 +127,10 @@ body {
     height: 34px;
   }
 
-  /* Hide nav for now (hamburger later) */
-  .nav {
-    display: none;
+  .page-hero {
+    padding-top: 20px !important;
   }
 }
-
 
 /* ===============================
    FOOTER – PDSA STYLE
@@ -556,12 +539,29 @@ body {
   margin: 0 auto;
   padding: 0 1.5rem;
 }
-
 .page-hero {
   background: transparent !important;
   box-shadow: none !important;
-}.page-hero {
   border-bottom: none !important;
+
+  padding-top: 24px !important;   /* 🔥 REDUCE TOP GAP */
+  padding-bottom: 32px;           /* balanced bottom */
+  margin: 0 !important;
+}
+@media (max-height: 800px) {
+  .page-hero {
+    padding-top: 16px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    height: 48px;
+  }
+
+  .page-hero {
+    padding-top: 14px !important;
+  }
 }
 
 .about-hero .page-title {
