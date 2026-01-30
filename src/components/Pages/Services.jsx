@@ -137,44 +137,49 @@ const Services = () => {
 
                 {/* CARD */}
                 <div
-                  className={`service-card service-fixed reveal
-                    ${showBg ? "service-card-with-bg" : ""}
-                    ${activeCard === item.id ? "card-active" : ""}
-                  `}
-                  style={
-                    showBg
-                      ? {
-                          backgroundImage: `url(${item.bgImage})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                        }
-                      : undefined
-                  }
-                  onMouseEnter={() => setHoverTitle(item.title)}
-                  onMouseLeave={() => setHoverTitle(null)}
-                  onClick={() => {
-                    setActiveCard(item.id);
-                    setTimeout(() => {
-                      navigate(item.route);
-                    }, 120);
-                  }}
-                >
-                  <img src={item.image} alt={item.title} className="service-icon-img" />
-                  <h3>{item.title}</h3>
+  className={`service-card service-fixed reveal
+    ${showBg ? "service-card-with-bg" : ""}
+    ${activeCard === item.id ? "card-active" : ""}
+  `}
+  style={
+    showBg
+      ? {
+          backgroundImage: `url(${item.bgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }
+      : undefined
+  }
+  onMouseEnter={() => setHoverTitle(item.title)}
+  onMouseLeave={() => setHoverTitle(null)}
+  onClick={() => {
+    setActiveCard(item.id);
+    setTimeout(() => {
+      navigate(item.route);
+    }, 120);
+  }}
+>
+  {/* 🔥 ADD THIS OVERLAY */}
+  {showBg && <div className="service-bg-overlay"></div>}
 
-                  {/* ✅ GUARANTEED COLOR CHANGE */}
-                  <p
-                    style={{
-                      color:
-                        hoverTitle === item.title || activeCard === item.id
-                          ? "#ffffff"
-                          : "#6b6969",
-                      transition: "color 0.5s ease",
-                    }}
-                  >
-                    {item.description}
-                  </p>
-                </div>
+  {/* CONTENT */}
+  <div className="service-content">
+    <img src={item.image} alt={item.title} className="service-icon-img" />
+    <h3>{item.title}</h3>
+
+    <p
+      style={{
+        color:
+          hoverTitle === item.title || activeCard === item.id
+            ? "#ffffff"
+            : "#6b6969",
+        transition: "color 0.4s ease",
+      }}
+    >
+      {item.description}
+    </p>
+  </div>
+</div>
               </div>
             );
           })}
