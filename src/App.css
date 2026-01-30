@@ -20,25 +20,44 @@ body {
   flex: 1;
 }
 
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0.25rem 0.75rem;
-
-  display: flex;
-  align-items: center;
+/* ===============================
+   BASE RESET
+================================ */
+* {
+  box-sizing: border-box;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
+/* ===============================
+   HEADER
+================================ */
 
 .site-header {
-  height: 64px;
   display: flex;
   align-items: center;
   background: #fff;
+
+  height: 64px;          /* default desktop */
+  padding: 0;            /* remove vertical space */
 }
 
+/* CONTAINER */
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
 
+  padding: 0 12px;       /* ⬅ only left/right */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
 .logo {
   display: flex;
   align-items: center;
@@ -50,29 +69,83 @@ body {
   display: block;
 }
 
-
+/* NAV */
 .nav {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-
-  margin-left: 0rem;   /* ✅ SPACE between logo & menu */
+  margin-left: 0;
 }
-
 
 .nav-link {
   font-size: 0.88rem;
-  padding: 2px 2px;      /* ⬇ tighter click area */
-  line-height: 1;        /* ⬅ removes vertical gap */
+  padding: 0;            /* ⬅ remove vertical padding */
+  line-height: 1;
+  white-space: nowrap;
 }
-header,
-nav {
-  margin: 0;
-}
-
 
 .nav-link:hover {
   color: #111827;
+}
+
+/* ===============================
+   SMALL LAPTOPS (≤ 1024px)
+================================ */
+@media (max-width: 1024px) {
+  .site-header {
+    height: 56px;        /* 🔥 reduce height */
+  }
+
+  .logo img {
+    height: 42px;
+  }
+
+  .nav {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+}
+
+/* ===============================
+   TABLETS (≤ 768px)
+================================ */
+@media (max-width: 768px) {
+  .site-header {
+    height: 52px;
+  }
+
+  .logo img {
+    height: 38px;
+  }
+
+  .nav {
+    gap: 0.75rem;
+  }
+
+  .nav-link {
+    font-size: 0.82rem;
+  }
+}
+
+/* ===============================
+   PHONES (≤ 480px)
+================================ */
+@media (max-width: 480px) {
+  .site-header {
+    height: 48px;
+  }
+
+  .logo img {
+    height: 34px;
+  }
+
+  /* Hide nav for now (hamburger later) */
+  .nav {
+    display: none;
+  }
 }
 
 
