@@ -257,7 +257,8 @@ const Home = () => {
                   alt="Expert Team"
                 />
               </div>
-              <h3 style={{ fontSize: "25px", color: "#1e40af" }}>
+             <h3 style={{ fontSize: "25px" }}>
+
                 Expert Team
               </h3>
               <p>Certified professionals with extensive industry experience.</p>
@@ -270,7 +271,8 @@ const Home = () => {
                   alt="Client-Centric Approach"
                 />
               </div>
-              <h3 style={{ fontSize: "25px", color: "#1e40af" }}>
+              <h3 style={{ fontSize: "25px" }}>
+
                 Client-Centric Approach
               </h3>
               <p>Solutions tailored to meet unique client requirements.</p>
@@ -283,7 +285,8 @@ const Home = () => {
                   alt="Innovative Solutions"
                 />
               </div>
-              <h3 style={{ fontSize: "25px", color: "#1e40af" }}>
+             <h3 style={{ fontSize: "25px" }}>
+
                 Innovative Solutions
               </h3>
               <p>Leveraging the latest technologies to drive innovation.</p>
@@ -296,7 +299,8 @@ const Home = () => {
                   alt="Reliable Support"
                 />
               </div>
-              <h3 style={{ fontSize: "25px", color: "#1e40af" }}>
+             <h3 style={{ fontSize: "25px" }}>
+
                 Reliable Support
               </h3>
               <p>Dedicated support team ensuring seamless operations.</p>

@@ -2754,7 +2754,7 @@ body {
   font-size: 2.4rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: #1e3a8a;
+  color: #ffffff;
 }
 
 .about-badge {
@@ -4110,6 +4110,7 @@ iframe {
     font-size: 22px;
   }
 }
+
 /* ===============================
    IMAGE + TEXT OVERLAY FEATURE
 ================================ */
@@ -4117,25 +4118,30 @@ iframe {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  min-height: 280px;
+
+  height: 260px; /* ✅ fixed clean height */
 }
 
 .feature-image-overlay img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
+/* Gradient overlay for contrast */
 .feature-image-overlay .overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.68),
-    rgba(0, 0, 64, 0.34)
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 32, 96, 0.45)
   );
+  z-index: 1;
 }
 
+/* Text over image */
 .overlay-content {
   position: absolute;
   inset: 0;
@@ -4143,46 +4149,198 @@ iframe {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #fdf9f9;
+
+  color: #ffffff;
   max-width: 620px;
+  z-index: 2;
 }
+
+.overlay-content h2 {
+  font-size: 38px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.overlay-content h3 {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.overlay-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.overlay-content ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.overlay-content li {
+  margin-bottom: 6px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ===============================
+   FEATURES SECTION BACKGROUND
+================================ */
 .features-bg {
   position: relative;
   padding: 90px 0;
-  background-image: url("https://www.shutterstock.com/image-photo/diverse-group-hands-come-together-600nw-2610302753.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80")
+    center/cover no-repeat;
   overflow: hidden;
 }
+
+
+/* opacity layer */
 .features-bg::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.78); /* bright white overlay */
+  background: rgba(255, 255, 255, 0.55); /* 🔥 less opacity */
   z-index: 0;
 }
 
+
+/* keep content above */
 .features-bg .container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
+
+/* ===============================
+   FEATURE CARD IMAGE
+================================ */
 .feature-icon {
   width: 100%;
-  height: 180px; /* same height for all images */
+  height: 200px;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 14px;
+  margin-bottom: 14px;
 }
 
 .feature-icon img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* crops image nicely */
+  object-fit: cover;
   display: block;
 }
-.feature-icon {
-  height: 200px;
+.feature-card {
+  background: #0b2a6f;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  transition: 0.35s ease;
 }
+
+.feature-card p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* NORMAL */
+/* Title (Heading) */
+.feature-card h3 {
+  margin-top: 16px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;   /* always visible */
+  transition: 0.35s ease;
+}
+/* HOVER EFFECT */
+/* Hover */
+.feature-card:hover {
+  transform: translateY(-10px);
+  background: #071b47;
+}
+
+/* Hover heading glow + color */
+.feature-card:hover h3 {
+  color: #ffffff;
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.7);
+}
+
+/* HOVER PARAGRAPH = WHITE */
+.feature-card:hover p {
+  color: #ffffff;
+}
+.feature-card:hover h3 {
+  color: #feffff;
+  text-shadow: 0 0 12px rgba(125, 211, 252, 0.6);
+}
+
+/* ✅ Hover text becomes white */
+.feature-card:hover h3,
+.feature-card:hover p {
+  color: #ffffff;
+}
+/* reveal default */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+
+/* reveal active */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.feature-card h3 {
+  transform: translateX(-15px);
+  opacity: 0;
+}
+
+.reveal.active h3 {
+  transform: translateX(0px);
+  opacity: 1;
+  transition: 0.7s ease;
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 0 rgba(125, 211, 252, 0);
+  }
+  50% {
+    text-shadow: 0 0 16px rgba(255, 255, 255, 0.65);
+  }
+  100% {
+    text-shadow: 0 0 0 rgba(125, 211, 252, 0);
+  }
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .feature-image-overlay {
+    height: 220px;
+  }
+
+  .overlay-content {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .overlay-content h2 {
+    font-size: 24px;
+  }
+
+  .overlay-content h3 {
+    font-size: 20px;
+  }
+
+  .overlay-content p {
+    font-size: 14px;
+  }
+}
+
 /* =========================================
    HOME SERVICES – NEXUS SPACE STYLE
 ========================================= */
@@ -5016,5 +5174,82 @@ iframe {
 
   .about-stats {
     justify-content: center;
+  }
+}
+/* ===========================
+   MOBILE RESPONSIVE ONLY
+   (Keeps your old navbar design)
+=========================== */
+@media (max-width: 950px) {
+  .menu-toggle {
+    display: flex; /* show hamburger */
+    flex-direction: column;
+    gap: 6px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    width: 28px;
+    height: 3px;
+    border-radius: 10px;
+    background: #1e40af;
+  }
+
+  /* Hide nav by default */
+  .nav {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 14px;
+    gap: 10px;
+    z-index: 9999;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Show nav when hamburger clicked */
+  .nav.nav-open {
+    display: flex;
+  }
+
+  /* Links full width */
+  .nav-link {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+  }
+
+  /* Mega menu should not float in mobile */
+  .nav-mega {
+    position: static !important;
+    width: 100% !important;
+    margin-top: 6px;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 8px 0;
+    background: transparent !important;
+  }
+
+  .nav-mega-item {
+    width: 100%;
+    display: block;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: rgba(30, 64, 175, 0.06);
+  }
+
+  .nav-mega-item:hover {
+    background: rgba(30, 64, 175, 0.12);
+  }
+
+  /* Hide desktop CTA button in mobile */
+  .header-cta {
+    display: none;
   }
 }
